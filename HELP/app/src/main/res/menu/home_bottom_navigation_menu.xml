@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tab_groups"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/main_tab_scanner_title" />
+    <item
+        android:id="@+id/tab_favourites"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/main_tab_restaurants_title" />
+</menu>

@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="google_oauth_key" templateMergeStrategy="preserve" translatable="false">
+        XXXXXXXX.apps.googleusercontent.com
+    </string>
+
+</resources>

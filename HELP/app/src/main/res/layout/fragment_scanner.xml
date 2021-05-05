@@ -1,0 +1,48 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scanner_fragment_content_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/content_view_camera_permisions_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/camera_permissions_message_tv"
+            style="@style/Text.Section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/scanner_camera_permission_message" />
+
+        <TextView
+            android:id="@+id/camera_permissions_title_tv"
+            style="@style/Text.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/camera_permissions_message_tv"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/scanner_camera_permission_title" />
+
+        <Button
+            android:id="@+id/enable_camera_permissions_btn"
+            style="@style/Button.Action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/camera_permissions_message_tv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_24"
+            android:text="@string/scanner_camera_permission_button" />
+
+    </RelativeLayout>
+
+</FrameLayout>

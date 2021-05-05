@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <string name="app_name">Wappiter</string>
+
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="action_loading_popup">Loading&#8230;</string>
+
+    <string name="error_generic">Something went wrong, please try again later</string>
+
+    <string name="go_to_settings_text">Go to settings</string>
+
+    <string name="expired_version_message">A new version of the application is available, please update.</string>
+    <string name="expired_version_button">Go to shop</string>
+
+    <!-- MAIN -->
+    <string name="main_tab_scanner_title">Search</string>
+    <string name="main_tab_restaurants_title">Restaurants</string>
+    <string name="main_tab_settings_title">Settings</string>
+
+    <!-- LOGIN -->
+    <string name="login_button">Access wappiter</string>
+    <string name="login_hint_email">Email</string>
+    <string name="login_hint_password">Password</string>
+    <string name="login_message">Enter the email and password you used to register with wappiter</string>
+    <string name="login_register_button">Sign up in wappiter</string>
+    <string name="login_reset_password_button">Forgot my password</string>
+    <string name="login_error_email_not_validated">You have not validated your account. Check your email to validate your account and enter wappiter.</string>
+    <string name="login_error_email_or_password_incorrect_title">Email or password is not from wappiter</string>
+    <string name="login_error_email_or_password_incorrect_message">The email or password is not correct. If you are a wappiter you might get confused, try again.</string>
+
+    <!-- REGISTRATION -->
+    <string name="registration_button">Create account</string>
+    <string name="registration_button_login">Sign in</string>
+    <string name="registration_hint_first_name">Name</string>
+    <string name="registration_hint_last_name">Surname</string>
+    <string name="registration_hint_email">Email</string>
+    <string name="registration_hint_password">Password</string>
+    <string name="registration_invalid_email">Email is not valid</string>
+    <string name="registration_section_login">Create your account</string>
+    <string name="registration_section_with_account">Already have an account?</string>
+    <string name="registration_title">Create account</string>
+
+    <!-- CONFIRMATION CODE -->
+    <string name="confirmation_code_button">Activate account</string>
+    <string name="confirmation_code_button_resend_code">Resend code</string>
+    <string name="confirmation_code_hint">Code</string>
+    <string name="confirmation_code_error_code_empty">You must enter a 4 digit code</string>
+    <string name="confirmation_code_section_code">Write the code sent to your email</string>
+    <string name="confirmation_code_section_send">You did not receive the code?</string>
+    <string name="confirmation_code_sent">A new code has been sent to your email</string>
+    <string name="confirmation_code_title">Activation code</string>
+
+    <!-- REQUEST RESET PASSWORD -->
+    <string name="request_reset_password_button_send">Send code</string>
+    <string name="request_reset_password_button_reset_password">Recover password</string>
+    <string name="request_reset_password_hint_email">Email</string>
+    <string name="request_reset_password_section_reset">Do you already have a code?</string>
+    <string name="request_reset_password_title">Recover password</string>
+
+    <!-- RESET PASSWORD -->
+    <string name="reset_password_button_change">Change password</string>
+    <string name="reset_password_button_request">Resend code</string>
+    <string name="reset_password_hint_code">Code</string>
+    <string name="reset_password_hint_password">New password</string>
+    <string name="reset_password_section">Enter the code and your new password</string>
+    <string name="reset_password_section_reset">Didn\'t received the code?</string>
+    <string name="reset_password_title">Change password</string>
+
+    <!-- SCANNER FRAGMENT -->
+    <string name="scanner_camera_permission_title">Camera access permissions</string>
+    <string name="scanner_camera_permission_message">Activate the camera permissions for the wappiter app in the Settings application of your phone and you will be able to see Restaurants after reading their QR Code.</string>
+    <string name="scanner_camera_permission_button">Go to settings</string>
+    <string name="scanner_invalid_qr_title">QR Code does not correspond any restaurant on wappiter</string>
+    <string name="scanner_invalid_qr_message">We cannot find the restaurant in wappiter, you can tell the person in charge to contact info@wappiter.com</string>
+
+    <!--  TERMS AND CONDITIONS  -->
+    <string name="terms_and_conditions_title">Welcome to wappiter, your restaurants app</string>
+    <string name="terms_and_conditions_complete_message">To use wappiter you must accept the Terms and conditions of use of the application.</string>
+    <string name="terms_and_conditions_text">Terms and conditions of use</string>
+
+    <!-- MY RESTAURANTS FRAGMENT -->
+    <string name="my_restaurants_login_dialog_title">Enter wappiter to have your restaurants at hand</string>
+    <string name="my_restaurants_login_dialog_message">Accessing wappiter you can have your favorite restaurants always available.</string>
+    <string name="my_restaurants_empty_list_title">Still don\'t have restaurants on your list?</string>
+    <string name="my_restaurants_empty_list_message">Search for a restaurant by reading its QR Code to access its menus with dishes, drinks and much more.</string>
+    <string name="my_restaurants_search_restaurant_button">Find restaurants</string>
+
+    <!-- SETTINGS FRAGMENT -->
+    <string name="settings_login_button_title">Access wappiter</string>
+    <string name="settings_my_profile_button">My profile</string>
+    <string name="settings_terms_and_conditions_button">Terms and conditions</string>
+    <string name="settings_web_button">Know us</string>
+    <string name="settings_logout_button">Close session</string>
+    <string name="settings_restaurant_manager_button">Do you have a restaurant? Free trial</string>
+    <string name="settings_rate_app_button">Rate app</string>
+
+    <!-- RESTAURANT DETAIL -->
+    <string name="restaurant_detail_orders_button">Orders</string>
+    <string name="restaurant_detail_my_orders_not_logged_user">Log in to view your orders in wappiter</string>
+
+</resources>

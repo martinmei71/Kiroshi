@@ -1,0 +1,187 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+        <item name="colorControlActivated">@color/primary_color</item>
+    </style>
+
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!--All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:actionBarStyle">@style/Widget.Light.ActionBar</item>
+        <item name="android:actionOverflowButtonStyle">@style/MyActionBarTitleOverFlow</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_action_back</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="md_color_title">@color/text_color_dark_gray</item>
+        <item name="md_color_content">@color/text_color_dark_gray</item>
+        <item name="md_color_widget">@android:color/white</item>
+        <item name="md_color_button_text">@color/text_color_dark_gray</item>
+        <item name="md_font_title">@font/montserrat_regular</item>
+        <item name="md_font_body">@font/montserrat_regular</item>
+        <item name="md_font_button">@font/montserrat_regular</item>
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppThemeWithoutBackground" parent="AppBaseTheme">
+        <!--All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:actionBarStyle">@style/Widget.Light.ActionBar</item>
+        <item name="android:actionOverflowButtonStyle">@style/MyActionBarTitleOverFlow</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_action_back</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="md_color_title">@color/text_color_dark_gray</item>
+        <item name="md_color_content">@color/text_color_dark_gray</item>
+        <item name="md_color_widget">@android:color/white</item>
+        <item name="md_color_button_text">@color/text_color_dark_gray</item>
+        <item name="md_font_title">@font/montserrat_regular</item>
+        <item name="md_font_body">@font/montserrat_regular</item>
+        <item name="md_font_button">@font/montserrat_regular</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Widget.Light.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:titleTextStyle">@style/MyActionBarTitleText</item>
+        <item name="android:subtitleTextStyle">@style/MyActionBarSubtitleText</item>
+        <item name="android:background">@color/primary_color</item>
+    </style>
+
+    <style name="MyActionBarTitleText" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MyActionBarSubtitleText" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Subtitle">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="MyActionBarTitleOverFlow">
+        <item name="android:src">@drawable/ic_action_overflow</item>
+        <item name="android:background">?android:attr/actionBarItemBackground</item>
+    </style>
+
+    <!--Dialog-->
+    <style name="CustomDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/primary_color</item>
+    </style>
+
+    <!-- Textos -->
+    <style name="Text">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="Text.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/text_color_dark_gray</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+
+    <style name="Text.Section">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_color_dark_gray</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:fontFamily">@font/montserrat_light</item>
+        <item name="fontFamily">@font/montserrat_light</item>
+    </style>
+
+    <style name="Text.Gray">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="Text.Gray.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Gray.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text.Login.EditText" parent="Text">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_color_dark_gray</item>
+    </style>
+
+    <!-- Buttons -->
+    <style name="Widget.MyApp.MyButton" parent="Widget.MaterialComponents.Button" />
+
+    <style name="Button" parent="Widget.MyApp.MyButton">
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+        <item name="textAllCaps">true</item>
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+    <style name="Button.Action" parent="Button">
+        <item name="backgroundTint">@color/primary_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Button.Action.White" parent="Button">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+
+    <style name="Button.Action.White.Login" parent="Button.Action.White">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="Button.Action.White.Toolbar" parent="Button.Action.White">
+        <item name="textAllCaps">false</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
+    </style>
+
+    <style name="Button.Secondary" parent="Button">
+        <item name="backgroundTint">@color/secondary_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+
+    <style name="RowButton">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingStart">@dimen/margin_16</item>
+        <item name="android:paddingEnd">@dimen/margin_16</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:drawableEnd">@drawable/baseline_keyboard_arrow_right_black_24</item>
+        <item name="android:textColor">@color/text_color_dark_gray</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <!-- TAB LAYOUT -->
+    <style name="MainTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/primary_color</item>
+        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabBackground">@color/lightest_grey</item>
+        <item name="tabTextAppearance">@style/MyCustomTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/primary_color</item>
+    </style>
+
+    <style name="MyCustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/secondary_color</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+</resources>

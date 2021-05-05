@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/my_restaurant_empty_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/my_restaurant_empty_list_message"
+            style="@style/Text.Section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/my_restaurants_empty_list_message" />
+
+        <TextView
+            android:id="@+id/my_restaurant_empty_list_title"
+            style="@style/Text.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/my_restaurant_empty_list_message"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/my_restaurants_empty_list_title" />
+
+        <Button
+            android:id="@+id/my_restaurant_empty_list_button"
+            style="@style/Button.Action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/my_restaurant_empty_list_message"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_24"
+            android:text="@string/my_restaurants_search_restaurant_button" />
+
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/my_restaurants_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="gone" />
+
+</RelativeLayout>

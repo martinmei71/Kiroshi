@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="es">
+
+    <!-- App name -->
+    <string name="app_name">Wappiter - Dev</string>
+
+</resources>

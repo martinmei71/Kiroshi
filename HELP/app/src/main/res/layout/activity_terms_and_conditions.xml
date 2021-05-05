@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/terms_and_conditions_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <TextView
+            android:id="@+id/terms_and_conditions_message_tv"
+            style="@style/Text.Section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:gravity="center"
+            tools:text="@string/terms_and_conditions_complete_message" />
+
+        <TextView
+            android:id="@+id/terms_and_conditions_title_tv"
+            style="@style/Text.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/terms_and_conditions_message_tv"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/margin_12"
+            android:text="@string/terms_and_conditions_title" />
+
+        <Button
+            android:id="@+id/accept_terms_and_conditions_btn"
+            style="@style/Button.Action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/terms_and_conditions_message_tv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_24"
+            android:gravity="center"
+            android:text="@string/accept" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

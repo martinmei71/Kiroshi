@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="branchio_scheme" translatable="false">wappiter</string>
+    <string name="branchio_key_live" translatable="false">key_live_pcIOW3M0mO81GLofaAUFpbnovBbA9vrh</string>
+    <string name="branchio_key_test" translatable="false">key_test_eeUS17T7cQY1USiocDKwtcpbCEau4yEx</string>
+
+</resources>

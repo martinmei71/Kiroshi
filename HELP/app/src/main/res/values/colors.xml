@@ -1,0 +1,27 @@
+<resources>
+
+    <color name="primary_color">#e61d2b</color>
+    <color name="primary_color_selected">#9B151E</color>
+    <color name="secondary_color">#b9b9b9</color>
+    <color name="secondary_color_selected">#E8E7E7</color>
+
+    <color name="text_color_dark_gray">#474747</color>
+
+
+
+    <color name="blue_facebook">#4267B2</color>
+    <color name="red_google">#e03f2e</color>
+    <color name="white">#ffffff</color>
+    <color name="lightest_grey">#F3F2F2</color>
+    <color name="light_grey">#d3d3d3</color>
+    <color name="dark_grey">#505050</color>
+    <color name="black">#000000</color>
+    <color name="black_10">#0f000000</color>
+    <color name="black_16">#29000000</color>
+    <color name="black_24">#3d000000</color>
+    <color name="black_30">#48000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="black_54">#89000000</color>
+    <color name="black_64">#D9000000</color>
+
+</resources>

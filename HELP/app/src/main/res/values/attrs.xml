@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LicenseViewAttrs">
+        <attr name="license_title" format="string" localization="suggested" />
+        <attr name="license_authors" format="string" localization="suggested" />
+        <attr name="license_text" format="string" localization="suggested" />
+    </declare-styleable>
+
+</resources>
