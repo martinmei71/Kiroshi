@@ -47,6 +47,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 "CREATE TABLE medicamentos (" +
                         "codCita INTEGER PRIMARY KEY," +
                         "asunto TEXT," +
+                        "fecha TEXT," +
                         "dniD TEXT," +
                         "dniP TEXT," +
                         "FOREIGN KEY(dniP) REFERENCES pacientes(dniP)," +
