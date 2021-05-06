@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,12 +19,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_new"
+        android:id="@+id/button_new_ma"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:fontFamily="@font/averia_serif_libre_bold"
-        android:onClick="goToNewUser"
+        android:onClick="onClickGoToNewUser"
         android:text="Soy Nuevo"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,33 +33,33 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/button_doctor"
+        android:id="@+id/button_doctor_ma"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="#FF9800"
         android:fontFamily="@font/averia_serif_libre_bold"
-        android:onClick="goToLoginDoctor"
+        android:onClick="onClickGoToLoginDoctor"
         android:text="Soy Doctor"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_new" />
+        app:layout_constraintTop_toBottomOf="@+id/button_new_ma" />
 
     <Button
-        android:id="@+id/button_paciente"
+        android:id="@+id/button_paciente_ma"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="#4CAF84"
         android:fontFamily="@font/averia_serif_libre_bold"
-        android:onClick="goToLoginPaciente"
+        android:onClick="onClickGoToLoginPaciente"
         android:text="Soy Paciente"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_doctor"
+        app:layout_constraintTop_toBottomOf="@+id/button_doctor_ma"
         tools:text="Soy Paciente" />
 </androidx.constraintlayout.widget.ConstraintLayout>

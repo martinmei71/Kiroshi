@@ -5,19 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewUserActivity">
+    tools:context=".activities.RegisterActivity">
 
     <Button
-        android:id="@+id/button_registrarme2"
+        android:id="@+id/btn_registrarme_rua"
         android:layout_width="295dp"
         android:layout_height="53dp"
         android:layout_marginBottom="52dp"
         android:backgroundTint="#3F51B5"
         android:fontFamily="@font/averia_serif_libre_bold"
+        android:onClick="onClickRegister"
         android:text="Registrarme"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
@@ -45,19 +47,20 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/et_dni"
+        android:id="@+id/et_dni_rua"
         android:layout_width="291dp"
         android:layout_height="46dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Introduzaca su DNI"
+        android:hint="DNI"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/sp_selector_user_rua" />
 
     <EditText
-        android:id="@+id/et_nombre"
+        android:id="@+id/et_name_rua"
         android:layout_width="291dp"
         android:layout_height="46dp"
         android:layout_marginTop="24dp"
@@ -66,10 +69,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_dni" />
+        app:layout_constraintTop_toBottomOf="@+id/et_dni_rua" />
 
     <EditText
-        android:id="@+id/et_apellidos"
+        android:id="@+id/et_last_name_rua"
         android:layout_width="291dp"
         android:layout_height="46dp"
         android:layout_marginTop="96dp"
@@ -78,20 +81,19 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_dni" />
+        app:layout_constraintTop_toBottomOf="@+id/et_dni_rua" />
 
     <EditText
-        android:id="@+id/et_dni_doctor"
+        android:id="@+id/et_dni_doctor_rua"
         android:layout_width="291dp"
         android:layout_height="46dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="DNI del Doctor"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_selector_user" />
+        app:layout_constraintTop_toBottomOf="@+id/et_last_name_rua" />
 
     <TextView
         android:id="@+id/textView"
@@ -110,42 +112,42 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <Spinner
-        android:id="@+id/spinner_selector_user"
-        android:layout_width="290dp"
-        android:layout_height="51dp"
+        android:id="@+id/sp_selector_user_rua"
+        android:layout_width="294dp"
+        android:layout_height="38dp"
 
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_apellidos" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/et_telefono"
+        android:id="@+id/et_telephone_rua"
         android:layout_width="290dp"
         android:layout_height="42dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="Introduce el Telefono"
+        android:hint="Telefono"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_dni_doctor" />
+        app:layout_constraintTop_toBottomOf="@+id/et_dni_doctor_rua" />
 
     <EditText
-        android:id="@+id/et_especialidad"
+        android:id="@+id/et_especiality_rua"
         android:layout_width="290dp"
         android:layout_height="42dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Especialidad"
         android:inputType="text"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_selector_user" />
+        app:layout_constraintTop_toBottomOf="@+id/et_telephone_rua" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

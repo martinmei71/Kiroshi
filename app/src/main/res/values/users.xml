@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="shoes">
-        <item>Paciente</item>
+    <string-array name="users_array">
+        <item>Selecciona una Opción</item>
         <item>Doctor</item>
+        <item>Paciente</item>
     </string-array>
 </resources>

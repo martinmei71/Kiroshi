@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">KiroshiHealth</string>
+
+    <!-- REGISTER -->
+    <string name="register_dni_invalid">EL DNI ES INVALIDO</string>
+    <string name="register_select_option">Debes seleccionar una opción</string>
+    <string name="register_incomlpete_data">Datos Incompletos</string>
+    <string name="register_wrong_phone">TELEFONO NO VALIDO</string>
+    <string name="register_wrong_dni">DNI NO VALIDO</string>
 </resources>

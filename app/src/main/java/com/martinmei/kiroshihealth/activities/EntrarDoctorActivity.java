@@ -1,4 +1,4 @@
-package com.martinmei.kiroshihealth;
+package com.martinmei.kiroshihealth.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,9 +11,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.martinmei.kiroshihealth.pacientes.PacientesActivity;
+import com.martinmei.kiroshihealth.ddbb.AdminSQLiteOpenHelper;
+import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.extra.Utils;
 
-public class EntrarDoctor extends AppCompatActivity {
+public class EntrarDoctorActivity extends AppCompatActivity {
 
 
     private EditText dniDoc;
@@ -22,7 +24,7 @@ public class EntrarDoctor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entrar_doctor);
-        dniDoc = findViewById(R.id.et_dni_doctor);
+        dniDoc = findViewById(R.id.et_dni_doctor_rua);
     }
 
 
@@ -31,7 +33,7 @@ public class EntrarDoctor extends AppCompatActivity {
 
             String nombre = null, dni;
 
-            AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "kiroshi", null, 1);
+            AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this);
 
             SQLiteDatabase db = adminHelper.getWritableDatabase();
 
@@ -42,7 +44,7 @@ public class EntrarDoctor extends AppCompatActivity {
                 Toast.makeText(this, "Tienes datos obligatorios que rellenar", Toast.LENGTH_SHORT).show();
             } else {
 
-                if (!Utils.validarDNI(dni)) {
+                if (!Utils.validarDNI(dniDoc)) {
                     Toast.makeText(this, "El DNI NO ES VÁLIDO", Toast.LENGTH_SHORT).show();
                 } else {
                     ContentValues valores = new ContentValues();
@@ -69,7 +71,7 @@ public class EntrarDoctor extends AppCompatActivity {
 
                 }else{
 
-                    Intent intent = new Intent(EntrarDoctor.this, PacientesActivity.class); // <-- TODO Cambiar Pacientes Activity to Doctores Activity
+                    Intent intent = new Intent(EntrarDoctorActivity.this, PacientesActivity.class); // <-- TODO Cambiar Pacientes Activity to Doctores Activity
                     intent.putExtra("dniDoc", dni);
                     intent.putExtra("nombre", nombre);
 

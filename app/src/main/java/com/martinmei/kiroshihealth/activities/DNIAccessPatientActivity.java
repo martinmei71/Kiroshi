@@ -1,4 +1,4 @@
-package com.martinmei.kiroshihealth;
+package com.martinmei.kiroshihealth.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,9 +11,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.martinmei.kiroshihealth.pacientes.PacientesActivity;
+import com.martinmei.kiroshihealth.ddbb.AdminSQLiteOpenHelper;
+import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.extra.Utils;
 
-public class EntradaPaciente extends AppCompatActivity {
+public class DNIAccessPatientActivity extends AppCompatActivity {
 
     private EditText dniP;
 
@@ -29,7 +31,7 @@ public class EntradaPaciente extends AppCompatActivity {
 
         String nombre = null, dni, dniDoc = null;
 
-        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "kiroshi", null, 1);
+        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this);
 
         SQLiteDatabase db = adminHelper.getWritableDatabase();
 
@@ -40,7 +42,7 @@ public class EntradaPaciente extends AppCompatActivity {
             Toast.makeText(this, "Tienes datos obligatorios que rellenar", Toast.LENGTH_SHORT).show();
         } else {
 
-            if (!Utils.validarDNI(dni)) {
+            if (!Utils.validarDNI(dniP)) {
                 Toast.makeText(this, "El DNI NO ES VÁLIDO", Toast.LENGTH_SHORT).show();
             } else {
                 ContentValues valores = new ContentValues();
@@ -68,7 +70,7 @@ public class EntradaPaciente extends AppCompatActivity {
 
             }else{
 
-                Intent intent = new Intent(EntradaPaciente.this, PacientesActivity.class);
+                Intent intent = new Intent(this, PacientesActivity.class);
                 intent.putExtra("dniP", dni);
                 intent.putExtra("nombre", nombre);
                 intent.putExtra("dniDoc", dniDoc);
