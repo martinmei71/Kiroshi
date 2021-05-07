@@ -5,13 +5,13 @@ public class Prescription {
     private Integer codPrescription ;
     private String name;
     private String description;
-    private String dni;
+    private String dniPatient;
 
-    public Prescription(Integer codPrescription, String name, String description, String dni) {
+    public Prescription(Integer codPrescription, String name, String description, String dniPatient) {
         this.codPrescription = codPrescription;
         this.name = name;
         this.description = description;
-        this.dni = dni;
+        this.dniPatient = dniPatient;
     }
 
     public Integer getCodPrescription() {
@@ -26,7 +26,7 @@ public class Prescription {
         return description;
     }
 
-    public String getDni() {
-        return dni;
+    public String getDniPatient() {
+        return dniPatient;
     }
 }

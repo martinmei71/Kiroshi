@@ -15,14 +15,14 @@ import com.martinmei.kiroshihealth.ddbb.AdminSQLiteOpenHelper;
 import com.martinmei.kiroshihealth.R;
 import com.martinmei.kiroshihealth.extra.Utils;
 
-public class DNIAccessPatientActivity extends AppCompatActivity {
+public class LoginPatientActivity extends AppCompatActivity {
 
     private EditText dniP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_entrada_paciente);
+        setContentView(R.layout.activity_login_paciente);
 
         dniP = findViewById(R.id.et_dnip);
     }
@@ -70,7 +70,7 @@ public class DNIAccessPatientActivity extends AppCompatActivity {
 
             }else{
 
-                Intent intent = new Intent(this, PacientesActivity.class);
+                Intent intent = new Intent(this, PatientsActivity.class);
                 intent.putExtra("dniP", dni);
                 intent.putExtra("nombre", nombre);
                 intent.putExtra("dniDoc", dniDoc);

@@ -15,19 +15,12 @@
 
 
     <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!--All customizations that are NOT specific to a particular API-level can go here. -->
-        <item name="android:actionBarStyle">@style/Widget.Light.ActionBar</item>
-        <item name="android:actionOverflowButtonStyle">@style/MyActionBarTitleOverFlow</item>
-        <item name="android:homeAsUpIndicator">@drawable/ic_action_back</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="md_color_title">@color/text_color_dark_gray</item>
-        <item name="md_color_content">@color/text_color_dark_gray</item>
-        <item name="md_color_widget">@android:color/white</item>
-        <item name="md_color_button_text">@color/text_color_dark_gray</item>
-        <item name="md_font_title">@font/montserrat_regular</item>
-        <item name="md_font_body">@font/montserrat_regular</item>
-        <item name="md_font_button">@font/montserrat_regular</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@android:color/white</item>
     </style>
 
     <!-- Application theme. -->

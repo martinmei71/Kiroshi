@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/sp_operation_pma" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/et_cod_prescription_pma"
         android:layout_width="247dp"
         android:layout_height="46dp"
         android:layout_marginTop="20dp"

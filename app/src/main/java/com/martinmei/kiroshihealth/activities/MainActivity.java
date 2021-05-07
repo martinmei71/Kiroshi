@@ -24,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickGoToLoginDoctor(View view){
-        Intent intent = new Intent(this, EntrarDoctorActivity.class);
+        Intent intent = new Intent(this, LoginDoctorActivity.class);
         startActivity(intent);
     }
 
     public void onClickGoToLoginPaciente(View view){
-        Intent intent = new Intent(this, DNIAccessPatientActivity.class);
+        Intent intent = new Intent(this, LoginPatientActivity.class);
         startActivity(intent);
     }
 

@@ -5,14 +5,14 @@ public class Appointment {
     private Integer codMeet;
     private String subject;
     private String date;
-    private String dni;
+    private String dniPatient;
     private String dniDoctor;
 
-    public Appointment(Integer codMeet, String subject, String date, String dni, String dniDoctor) {
+    public Appointment(Integer codMeet, String subject, String date, String dniPatient, String dniDoctor) {
         this.codMeet = codMeet;
         this.subject = subject;
         this.date = date;
-        this.dni = dni;
+        this.dniPatient = dniPatient;
         this.dniDoctor = dniDoctor;
     }
 
@@ -28,8 +28,8 @@ public class Appointment {
         return date;
     }
 
-    public String getDni() {
-        return dni;
+    public String getDniPatient() {
+        return dniPatient;
     }
 
     public String getDniDoctor() {

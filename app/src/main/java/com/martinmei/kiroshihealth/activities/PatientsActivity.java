@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.martinmei.kiroshihealth.R;
 
-public class PacientesActivity extends AppCompatActivity {
+public class PatientsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

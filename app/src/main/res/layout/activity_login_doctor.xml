@@ -4,40 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.DNIAccessPatientActivity">
-
-    <Button
-        android:id="@+id/button_registrarme"
-        android:layout_width="295dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="52dp"
-        android:backgroundTint="#22B573"
-        android:fontFamily="@font/averia_serif_libre_bold"
-        android:text="Entrar"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    tools:context=".activities.LoginDoctorActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="92dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Entrando Paciente"
-        android:textColor="#009667"
+        android:text="Entrando Doctor"
+        android:textColor="#FF9800"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_dnip"
+        android:id="@+id/et_dniDoc_ED"
         android:layout_width="292dp"
         android:layout_height="53dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="108dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Introduce el DNI"
@@ -45,5 +32,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/button_registrarme3"
+        android:layout_width="295dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#FF9800"
+        android:fontFamily="@font/averia_serif_libre_bold"
+        android:text="Entrar"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

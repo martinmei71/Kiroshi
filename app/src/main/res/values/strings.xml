@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">KiroshiHealth</string>
 
+    <!-- COMMON -->
+    <string name="common_data_not_found">Datos no encontrados</string>
+
     <!-- REGISTER -->
     <string name="register_dni_invalid">EL DNI ES INVALIDO</string>
-    <string name="register_select_option">Debes seleccionar una opción</string>
+    <string name="register_toolbar_title">Registro</string>
+    <string name="register_select_option">Debes seleccionar un tipo de Usuario</string>
     <string name="register_incomlpete_data">Datos Incompletos</string>
     <string name="register_wrong_phone">TELEFONO NO VALIDO</string>
     <string name="register_wrong_dni">DNI NO VALIDO</string>
+    <string name="register_no_doctor_data">No hay Doctores debes crear uno primero</string>
 </resources>

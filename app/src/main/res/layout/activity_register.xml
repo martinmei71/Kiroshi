@@ -7,44 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".activities.RegisterActivity">
 
-    <Button
-        android:id="@+id/btn_registrarme_rua"
-        android:layout_width="295dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="52dp"
-        android:backgroundTint="#3F51B5"
-        android:fontFamily="@font/averia_serif_libre_bold"
-        android:onClick="onClickRegister"
-        android:text="Registrarme"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="parent" />
+    <include
+        android:id="@+id/content_toolbar"
+        layout="@layout/toolbar_default"
+        />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#22B573"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:foregroundGravity="center"
-            android:id="@+id/imageView2"
-            android:layout_width="305dp"
-            android:layout_height="56dp"
-            app:srcCompat="@drawable/recurso_4salmon_blackground"
-            tools:layout_editor_absoluteX="55dp"
-            tools:layout_editor_absoluteY="0dp" />
-
-
-    </androidx.appcompat.widget.Toolbar>
 
     <EditText
         android:id="@+id/et_dni_rua"
@@ -83,18 +50,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_dni_rua" />
 
-    <EditText
-        android:id="@+id/et_dni_doctor_rua"
-        android:layout_width="291dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="DNI del Doctor"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_last_name_rua" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="158dp"
@@ -109,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
 
     <Spinner
         android:id="@+id/sp_selector_user_rua"
@@ -124,19 +79,19 @@
 
     <EditText
         android:id="@+id/et_telephone_rua"
-        android:layout_width="290dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="291dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Telefono"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_dni_doctor_rua" />
+        app:layout_constraintTop_toBottomOf="@+id/et_last_name_rua" />
 
     <EditText
-        android:id="@+id/et_especiality_rua"
+        android:id="@+id/et_specialty_rua"
         android:layout_width="290dp"
         android:layout_height="42dp"
         android:layout_marginTop="16dp"
@@ -149,5 +104,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_telephone_rua" />
 
+    <Spinner
+        android:id="@+id/sp_dni_doctor_rua"
+        android:layout_width="296dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_telephone_rua" />
+
+    <Button
+        android:id="@+id/btn_registrarme_rua"
+        android:layout_width="295dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="#3F51B5"
+        android:fontFamily="@font/averia_serif_libre_bold"
+        android:text="Registrarme"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
