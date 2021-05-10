@@ -6,11 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".activities.PrescriptionManagementActivity">
 
+    <include
+        android:id="@+id/content_toolbar"
+        layout="@layout/toolbar_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="347dp"
         android:layout_height="61dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Gestión de Recetas."
         android:textColor="#1E1E1E"
@@ -18,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
 
     <TextView
         android:id="@+id/textView5"
@@ -58,22 +68,75 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Codigo Medicamento"
-        android:inputType="number"
+        android:inputType="text"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
+    <EditText
+        android:id="@+id/et_name_pma"
+        android:layout_width="247dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="text"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_cod_prescription_pma" />
+
+    <EditText
+        android:id="@+id/et_description_pma"
+        android:layout_width="247dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="text"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_name_pma" />
+
     <Button
         android:id="@+id/btn_apply_pma"
         android:layout_width="272dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="#2196F3"
         android:fontFamily="@font/averia_serif_libre_bold"
         android:text="Aplicar"
+        android:visibility="visible"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/sp_select_patient_pma"
+        android:layout_width="352dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="24dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.271"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_description_pma" />
+
+    <Spinner
+        android:id="@+id/sp_select_prescription_pma"
+        android:layout_width="352dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.271"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

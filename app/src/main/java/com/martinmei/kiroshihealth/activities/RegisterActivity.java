@@ -4,9 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.martinmei.kiroshihealth.ddbb.AdminSQLiteOpenHelper;
+import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.R;
 import com.martinmei.kiroshihealth.extra.Constants;
 import com.martinmei.kiroshihealth.extra.Utils;
@@ -96,7 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        doctors = AdminSQLiteOpenHelper.getDoctors(this);
+        doctors = Database.getDoctors(this);
         fullNameDoctorList = new ArrayList<>();
         fullNameDoctorList.add(getString(R.string.register_select_option));
         for (Doctor doctor : doctors) {
@@ -166,7 +164,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         String dniDoc = doctors.get(spFullNameDoctor.getSelectedItemPosition() - 1).getDni();
         Patient patient = new Patient(etDni.getText().toString(), etName.getText().toString(), etLastName.getText().toString(), etTelephone.getText().toString(),dniDoc);
-        AdminSQLiteOpenHelper.createPatient(this, patient);
+        Database.createPatient(this, patient);
 
     }
 
@@ -201,6 +199,6 @@ public class RegisterActivity extends AppCompatActivity {
     private void createDoctor() {
         Doctor doctor = new Doctor(etDni.getText().toString(), etName.getText().toString(), etLastName.getText().toString(), etSpecialty.getText().toString());
 
-        AdminSQLiteOpenHelper.createDoctor(this, doctor);
+        Database.createDoctor(this, doctor);
     }
 }

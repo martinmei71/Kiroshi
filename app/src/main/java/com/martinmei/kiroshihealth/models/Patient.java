@@ -14,6 +14,7 @@ public class Patient {
         this.lastName = lastName;
         this.phone = phone;
     }
+    public Patient(){}
 
     public String getDni() {
         return dni;

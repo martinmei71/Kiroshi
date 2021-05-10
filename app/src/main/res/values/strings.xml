@@ -3,6 +3,10 @@
 
     <!-- COMMON -->
     <string name="common_data_not_found">Datos no encontrados</string>
+    <string name="text_new">Dar de alta</string>
+    <string name="text_delete">Borrar</string>
+    <string name="text_modify">Modificar</string>
+    <string name="text_save">Guardar Cambios</string>
 
     <!-- REGISTER -->
     <string name="register_dni_invalid">EL DNI ES INVALIDO</string>
@@ -12,4 +16,18 @@
     <string name="register_wrong_phone">TELEFONO NO VALIDO</string>
     <string name="register_wrong_dni">DNI NO VALIDO</string>
     <string name="register_no_doctor_data">No hay Doctores debes crear uno primero</string>
+
+    <!-- LOGIN -->
+    <string name="login_no_doctor_data">No hay Doctores con ese DNI</string>
+    <string name="login_no_patient_data">No hay Pacientes con ese DNI</string>
+    <string name="login_doctor_title">Entrando Doctor</string>
+    <string name="login_patient_title">Entrando Paciente</string>
+
+    <!-- PRESCRIPTIONS -->
+    <string name="create_prescription_option">Selecciona un Paciente</string>
+    <string name="create_prescription_toolbar_text">Gestión de Recetas</string>
+
+
+
+
 </resources>

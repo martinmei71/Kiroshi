@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.martinmei.kiroshihealth">
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -11,10 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KiroshiHealth">
-        <activity android:name=".activities.PrescriptionManagementActivity"></activity>
-        <activity android:name=".activities.LoginDoctorActivity" />
-        <activity android:name=".activities.LoginPatientActivity" />
-        <activity android:name=".activities.PatientsActivity" />
+        <activity android:name=".activities.DoctorMenuActivity"></activity>
+        <activity android:name=".activities.PrescriptionManagementActivity" />
+        <activity android:name=".activities.AccessDniDoctorActivity" />
+        <activity android:name=".activities.AccessDniPatientActivity" />
+        <activity android:name=".activities.PatientsMenuActivity" />
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>

@@ -1,6 +1,9 @@
 package com.martinmei.kiroshihealth.models;
 
-public class Doctor {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Doctor implements Parcelable {
 
      private String dni ;
      private String name;
@@ -29,4 +32,38 @@ public class Doctor {
      public String getSpecialty() {
           return specialty;
      }
+
+
+
+     protected Doctor(Parcel in) {
+          dni = in.readString();
+          name = in.readString();
+          lastName = in.readString();
+          specialty = in.readString();
+     }
+
+     @Override
+     public int describeContents() {
+          return 0;
+     }
+
+     @Override
+     public void writeToParcel(Parcel dest, int flags) {
+          dest.writeString(dni);
+          dest.writeString(name);
+          dest.writeString(lastName);
+          dest.writeString(specialty);
+     }
+
+     public static final Creator<Doctor> CREATOR = new Creator<Doctor>() {
+          @Override
+          public Doctor createFromParcel(Parcel in) {
+               return new Doctor(in);
+          }
+
+          @Override
+          public Doctor[] newArray(int size) {
+               return new Doctor[size];
+          }
+     };
 }

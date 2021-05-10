@@ -15,7 +15,7 @@ import com.martinmei.kiroshihealth.models.Prescription;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
+public class Database extends SQLiteOpenHelper {
 
     private static String TABLE_DOCTOR = "doctor";
     private static String TABLE_PATIENT = "patient";
@@ -34,7 +34,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     private static String DATE = "date";
 
 
-    public AdminSQLiteOpenHelper(Context context){
+    public Database(Context context){
         super(context, Constants.DATABASE_NAME, null, 1);
     }
 
@@ -97,13 +97,13 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     }
 
     private static SQLiteDatabase initWritableDDBB(Context context){
-        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(context);
+        Database adminHelper = new Database(context);
         SQLiteDatabase db = adminHelper.getWritableDatabase();
         return db;
    }
 
    private static SQLiteDatabase initReadableDDBB(Context context){
-        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(context);
+        Database adminHelper = new Database(context);
         SQLiteDatabase db = adminHelper.getReadableDatabase();
         return db;
    }
@@ -113,7 +113,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
        ContentValues values = new ContentValues();
 
-       values.put(DNI_DOC, doctor.getDni());
+       values.put(DNI_DOC, doctor.getDni().toUpperCase());
        values.put(NAME, doctor.getName());
        values.put(LAST_NAME, doctor.getLastName());
        values.put(SPECIALTY, doctor.getSpecialty());
@@ -126,7 +126,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
        ContentValues values = new ContentValues();
 
-       values.put(DNI_PATIENT, patient.getDni());
+       values.put(DNI_PATIENT, patient.getDni().toUpperCase());
        values.put(NAME, patient.getName());
        values.put(LAST_NAME, patient.getLastName());
        values.put(PHONE, patient.getPhone());
@@ -183,6 +183,105 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.close();
         return doctors;
+
     }
+    public static Doctor getDoctor(Context context, String dni){
+        Doctor doctorSend = null;
+
+        List<Doctor> doctors = getDoctors(context);
+
+        for(Doctor doctor : doctors){
+            if(doctor.getDni().equals(dni.toUpperCase())) {
+                doctorSend = new Doctor(doctor.getDni(), doctor.getName(), doctor.getLastName(), doctor.getSpecialty());
+            }
+        }
+        return doctorSend;
+    }
+
+    public static boolean hasDoctor(Context context,String dni){
+        return getDoctor(context, dni) != null;
+    }
+
+
+    public static List<Patient> getPatients(Context  context){
+
+        SQLiteDatabase sqLiteDatabase= initReadableDDBB(context);
+
+        Cursor cursor = sqLiteDatabase.query(TABLE_PATIENT, new String[]{DNI_PATIENT,NAME, LAST_NAME,PHONE,DNI_DOC},null,null,null,null,null);
+
+        List<Patient> patients = new ArrayList<>();
+        while(cursor.moveToNext()) {
+
+            String dniPatient =cursor.getString(cursor.getColumnIndex(DNI_PATIENT));
+            String name = cursor.getString(cursor.getColumnIndex(NAME));
+            String lastName = cursor.getString(cursor.getColumnIndex(LAST_NAME));
+            String phone = cursor.getString(cursor.getColumnIndex(PHONE));
+            String dniDoc = cursor.getString(cursor.getColumnIndex(DNI_DOC));
+
+            Patient patient = new Patient(dniPatient,name,lastName,phone,dniDoc);
+            patients.add(patient);
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return patients;
+    }
+
+    public static Patient getPatient(Context context, String dni){
+        Patient patientSend = null;
+
+        List<Patient> patients = getPatients(context);
+
+        for(Patient patient : patients){
+            if(patient.getDni().equals(dni.toUpperCase())) {
+                patientSend = new Patient(patient.getDni(), patient.getName(), patient.getLastName(), patient.getPhone(), patient.getDniDoc());
+            }
+        }
+        return patientSend;
+    }
+
+    public static boolean hasPatient(Context context,String dni){
+        return getPatient(context, dni) != null;
+    }
+
+    public static List<Prescription> getPrescriptions(Context context){
+
+        SQLiteDatabase sqLiteDatabase= initReadableDDBB(context);
+
+        Cursor cursor = sqLiteDatabase.query(TABLE_PRESCRIPTION, new String[]{COD_PRESCRIPTION,NAME,DESCRIPTION,DNI_PATIENT},null,null,null,null,null);
+
+        List<Prescription> prescriptions = new ArrayList<>();
+        while(cursor.moveToNext()) {
+
+            Integer cod = Integer.parseInt(cursor.getString(cursor.getColumnIndex(COD_PRESCRIPTION)));
+            String name = cursor.getString(cursor.getColumnIndex(NAME));
+            String description = cursor.getString(cursor.getColumnIndex(DESCRIPTION));
+            String dni = cursor.getString(cursor.getColumnIndex(DNI_PATIENT));
+
+            Prescription patient = new Prescription(cod,name,description,dni);
+            prescriptions.add(patient);
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return prescriptions;
+    }
+
+    public static Prescription getPrescription(Context context, String cod){
+        Prescription prescriptionSend = null;
+
+        List<Prescription> prescriptions = getPrescriptions(context);
+
+        for(Prescription prescription : prescriptions){
+            if(prescription.getCodPrescription().equals(Integer.parseInt(cod))) {
+                prescriptionSend = new Prescription(prescription.getCodPrescription(),prescription.getName(),prescription.getDescription(),prescription.getDniPatient());
+            }
+        }
+        return prescriptionSend;
+    }
+
+    public static boolean hasPrescription(Context context,String cod){
+        return getPatient(context, cod) != null;
+    }
+
+
 
 }

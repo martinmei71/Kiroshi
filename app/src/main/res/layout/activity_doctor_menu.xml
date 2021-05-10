@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DoctorMenuActivity">
+
+    <TextView
+        android:id="@+id/textview_title_dma"
+        android:layout_width="273dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/averia_serif_libre_bold"
+        android:gravity="center"
+        android:text="¡ Hola !"
+        android:textColor="#272727"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="97dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/icono_pacientes_doctor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="95dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="Ver mis Pacientes"
+        android:textColor="#3A3A3A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="95dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="Ver Citas"
+        android:textColor="#3A3A3A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="95dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="Gestionar Recetas"
+        android:textColor="#3A3A3A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="98dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="Mis Datos"
+        android:textColor="#3A3A3A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton7" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="97dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/icono_citas_doctor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="97dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="196dp"
+        android:background="@drawable/icono_farmacia_doctor"
+        android:onClick="onClickManagementPrescriptions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="97dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/icono_mis_datos_doctor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+
+    <include
+        android:id="@+id/content_toolbar"
+        layout="@layout/toolbar_default"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
