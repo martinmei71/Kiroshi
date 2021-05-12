@@ -265,21 +265,42 @@ public class Database extends SQLiteOpenHelper {
         return prescriptions;
     }
 
-    public static Prescription getPrescription(Context context, String cod){
+    public static boolean deletePatient(Context context,String dni) {
+        boolean verify = false;
+        SQLiteDatabase sqLiteDatabase = initWritableDDBB(context);
+
+        if (dni.length() == 0) {
+            verify = false;
+        } else {
+            String selection = DNI_PATIENT + " = ?";
+            String[] condition = {dni};
+            int deletedRows = sqLiteDatabase.delete(TABLE_PATIENT, selection, condition);
+            if (deletedRows == 0) {
+                verify = false;
+            } else {
+                verify = true;
+            }
+        }
+
+        sqLiteDatabase.close();
+        return verify;
+    }
+
+    public static Prescription getPrescription(Context context, String code){
         Prescription prescriptionSend = null;
 
         List<Prescription> prescriptions = getPrescriptions(context);
 
         for(Prescription prescription : prescriptions){
-            if(prescription.getCodPrescription().equals(Integer.parseInt(cod))) {
+            if(prescription.getCodPrescription().equals(Integer.parseInt(code))) {
                 prescriptionSend = new Prescription(prescription.getCodPrescription(),prescription.getName(),prescription.getDescription(),prescription.getDniPatient());
             }
         }
         return prescriptionSend;
     }
 
-    public static boolean hasPrescription(Context context,String cod){
-        return getPatient(context, cod) != null;
+    public static boolean hasPrescription(Context context,String code){
+        return getPatient(context, code) != null;
     }
 
     public static boolean deletePrescription(Context context,Integer codPrescription) {
@@ -303,7 +324,7 @@ public class Database extends SQLiteOpenHelper {
         return verify;
     }
 
-    public static List<Appointment> getAppointments(Context  context){
+    public static List<Appointment> getAppointments(Context context){
 
         SQLiteDatabase sqLiteDatabase= initReadableDDBB(context);
 

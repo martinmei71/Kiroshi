@@ -25,7 +25,6 @@ public class ApointmentListActivity extends AppCompatActivity {
         List<Appointment> appointments = Database.getAppointments(this);
 
 
-
         AppointmentAdapter appointmentAdapter = new AppointmentAdapter(appointments);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recycledview_appointments.setLayoutManager(mLayoutManager);

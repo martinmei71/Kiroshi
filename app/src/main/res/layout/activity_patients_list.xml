@@ -15,11 +15,22 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycled_view_patients"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
+
+    <TextView
+        android:id="@+id/tv_patient_list_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/averia_serif_libre_bold"
+        android:text="@string/list_patient_no_patients"
+        android:textAlignment="center"
+        android:textColor="#272727"
+        android:textSize="20sp"
+        android:visibility="invisible" />
+
 </LinearLayout>

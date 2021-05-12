@@ -7,6 +7,7 @@
     <string name="text_delete">Borrar</string>
     <string name="text_modify">Modificar</string>
     <string name="text_save">Guardar Cambios</string>
+    <string name="detail_title">Detalles</string>
 
     <!-- REGISTER -->
     <string name="register_dni_invalid">EL DNI ES INVALIDO</string>
@@ -29,6 +30,18 @@
     <string name="create_prescription_toolbar_text">Gestión de Recetas</string>
     <string name="create_prescription_delete_text">Borrado correctamente</string>
     <string name="create_prescription_failure_delete_text">Error en el borrado</string>
+
+    <!-- MENU PATIENTS -->
+    <string name="menu_patient_title">Paciente</string>
+
+    <!-- MENU PATIENTS -->
+    <string name="menu_doctor_title">Doctor</string>
+
+    <!-- LIST PATIENTS -->
+    <string name="list_patient_title">Lista de Pacientes</string>
+    <string name="list_patient_no_patients">No hay pacientes</string>
+    <string name="list_patient_deleted">Paciente eliminado correctamente</string>
+    <string name="list_patient_failure_deleted">Paciente NO eliminado </string>
 
 
 </resources>

@@ -46,19 +46,12 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
         initBinding();
-
         initToolbar();
-
         initData();
-
         initSpinnerAdapter();
-
         setUpListeners();
-
         initUI();
-
     }
 
 
@@ -106,7 +99,6 @@ public class RegisterActivity extends AppCompatActivity {
         spFullNameDoctor.setVisibility(View.GONE);
         etSpecialty.setVisibility(View.GONE);
         etTelephone.setVisibility(View.GONE);
-
     }
 
     private void initSpinnerAdapter() {
@@ -138,7 +130,6 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
@@ -161,7 +152,6 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     private void createPatient() {
-
         String dniDoc = doctors.get(spFullNameDoctor.getSelectedItemPosition() - 1).getDni();
         Patient patient = new Patient(etDni.getText().toString(), etName.getText().toString(), etLastName.getText().toString(), etTelephone.getText().toString(),dniDoc);
         Database.createPatient(this, patient);
@@ -198,7 +188,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void createDoctor() {
         Doctor doctor = new Doctor(etDni.getText().toString(), etName.getText().toString(), etLastName.getText().toString(), etSpecialty.getText().toString());
-
         Database.createDoctor(this, doctor);
     }
 }

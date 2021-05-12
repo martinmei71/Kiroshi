@@ -64,15 +64,6 @@ public class PrescriptionManagementActivity extends AppCompatActivity {
 
         setUpListeners();
 
-        buttonApply.setOnClickListener(v -> {
-            if(spOperations.getSelectedItemPosition()==0){
-                 Toast.makeText(PrescriptionManagementActivity.this, getString(R.string.register_select_option), Toast.LENGTH_SHORT).show();
-            } else if(spOperations.getSelectedItemPosition()==1){
-                    createPrescription();
-            } else if (spOperations.getSelectedItemPosition()==2){
-                deletePrescription();
-            }
-        });
     }
 
     @Override
@@ -117,7 +108,6 @@ public class PrescriptionManagementActivity extends AppCompatActivity {
         for (Prescription prescription : prescriptions) {
             fullPrescriptionList.add(prescription.getName() + ", con codigo " + prescription.getCodPrescription()+" a " + prescription.getDniPatient());
         }
-
     }
 
     private void initSpinnerAdapter() {
@@ -149,16 +139,26 @@ public class PrescriptionManagementActivity extends AppCompatActivity {
                     etDescription.setVisibility(View.VISIBLE);
                     spPrescriptions.setVisibility(View.GONE);
                     buttonApply.setText(getString(R.string.text_new));
-
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
 
-        });}
+        });
+
+        buttonApply.setOnClickListener(v -> {
+            if(spOperations.getSelectedItemPosition()==0){
+                Toast.makeText(PrescriptionManagementActivity.this, getString(R.string.register_select_option), Toast.LENGTH_SHORT).show();
+            } else if(spOperations.getSelectedItemPosition()==1){
+                createPrescription();
+            } else if (spOperations.getSelectedItemPosition()==2){
+                deletePrescription();
+            }
+        });
+
+    }
 
     private void createPrescription(){
         String dniPatient= patients.get(spPatients.getSelectedItemPosition() - 1).getDni();

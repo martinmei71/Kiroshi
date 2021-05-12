@@ -24,6 +24,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:ellipsize="end"
+            android:fontFamily="@font/averia_serif_libre_bold"
             android:maxLines="1"
             android:textColor="@android:color/white"
             tools:text="Toolbar" />

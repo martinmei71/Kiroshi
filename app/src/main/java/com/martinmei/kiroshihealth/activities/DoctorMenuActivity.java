@@ -1,6 +1,7 @@
 package com.martinmei.kiroshihealth.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,14 +9,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+
 import com.martinmei.kiroshihealth.R;
 import com.martinmei.kiroshihealth.models.Doctor;
 
 public class DoctorMenuActivity extends AppCompatActivity {
 
+   private TextView tvToolbar;
+   private TextView titleTv;
+   private Doctor doctor;
+   private Toolbar toolbar;
 
-    private TextView titleTv;
-    private Doctor doctor;
 
 
     public static Intent newIntent(Context context, Doctor doctor){
@@ -30,15 +34,25 @@ public class DoctorMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctor_menu);
         initBindings();
         initData();
+        initToolbar();
         initUI();
     }
 
     private void initBindings(){
         titleTv = findViewById(R.id.textview_title_dma);
+        tvToolbar = findViewById(R.id.toolbar_title);
+        toolbar = findViewById(R.id.toolbar);
     }
 
     private void initData() {
-      doctor = getIntent().getParcelableExtra(Intent.EXTRA_INTENT);
+        doctor = getIntent().getParcelableExtra(Intent.EXTRA_INTENT);
+    }
+    private void initToolbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        tvToolbar.setText(getString(R.string.menu_doctor_title));
     }
 
     public void onClickManagementPrescriptions(View view){
@@ -50,9 +64,7 @@ public class DoctorMenuActivity extends AppCompatActivity {
     }
 
     private void initUI(){
-
         titleTv.setText("¡ Hola de nuevo "+doctor.getName()+" !");
-
     }
 
 }
