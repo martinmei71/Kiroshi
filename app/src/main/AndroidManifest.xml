@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KiroshiHealth">
-        <activity android:name=".activities.DoctorMenuActivity"></activity>
+        <activity android:name=".activities.ApointmentListActivity"></activity>
+        <activity android:name=".activities.PatientAdapter" />
+        <activity android:name=".activities.PatientsListActivity" />
+        <activity android:name=".activities.DoctorMenuActivity" />
         <activity android:name=".activities.PrescriptionManagementActivity" />
         <activity android:name=".activities.AccessDniDoctorActivity" />
         <activity android:name=".activities.AccessDniPatientActivity" />

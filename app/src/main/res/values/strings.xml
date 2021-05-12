@@ -24,10 +24,11 @@
     <string name="login_patient_title">Entrando Paciente</string>
 
     <!-- PRESCRIPTIONS -->
-    <string name="create_prescription_option">Selecciona un Paciente</string>
+    <string name="create_prescription_patient_sp_option">Selecciona un Paciente</string>
+    <string name="create_prescription_prescription_sp_option">Selecciona una Receta</string>
     <string name="create_prescription_toolbar_text">Gestión de Recetas</string>
-
-
+    <string name="create_prescription_delete_text">Borrado correctamente</string>
+    <string name="create_prescription_failure_delete_text">Error en el borrado</string>
 
 
 </resources>

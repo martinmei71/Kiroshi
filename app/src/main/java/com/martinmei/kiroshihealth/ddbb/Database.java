@@ -282,6 +282,48 @@ public class Database extends SQLiteOpenHelper {
         return getPatient(context, cod) != null;
     }
 
+    public static boolean deletePrescription(Context context,Integer codPrescription) {
+        boolean verify = false;
+        SQLiteDatabase sqLiteDatabase = initWritableDDBB(context);
 
+        if (codPrescription == 0) {
+            verify = false;
+        } else {
+            String selection = COD_PRESCRIPTION + " = ?";
+            String[] condition = {codPrescription.toString()};
+            int deletedRows = sqLiteDatabase.delete(TABLE_PRESCRIPTION, selection, condition);
+            if (deletedRows == 0) {
+                verify = false;
+            } else {
+                verify = true;
+            }
+        }
+
+        sqLiteDatabase.close();
+        return verify;
+    }
+
+    public static List<Appointment> getAppointments(Context  context){
+
+        SQLiteDatabase sqLiteDatabase= initReadableDDBB(context);
+
+        Cursor cursor = sqLiteDatabase.query(TABLE_APPOINTMENT, new String[]{COD_APPOINTMENT,SUBJECT, DATE,DNI_PATIENT,DNI_DOC},null,null,null,null,null);
+
+        List<Appointment> appointments = new ArrayList<>();
+        while(cursor.moveToNext()) {
+
+            Integer codAppointment = Integer.parseInt(cursor.getString(cursor.getColumnIndex(COD_APPOINTMENT)));
+            String subject = cursor.getString(cursor.getColumnIndex(SUBJECT));
+            String date = cursor.getString(cursor.getColumnIndex(DATE));
+            String dniPatient = cursor.getString(cursor.getColumnIndex(DNI_PATIENT));
+            String dniDoc = cursor.getString(cursor.getColumnIndex(DNI_DOC));
+
+            Appointment appointment = new Appointment(codAppointment,subject,date,dniPatient,dniDoc);
+            appointments.add(appointment);
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+        return appointments;
+    }
 
 }

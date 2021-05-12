@@ -33,13 +33,11 @@ public class PrescriptionManagementActivity extends AppCompatActivity {
     private Spinner spOperations;
     private Spinner spPatients;
     private Spinner spPrescriptions;
-    private EditText etCod;
     private EditText etName;
     private EditText etDescription;
     private TextView tvToolbarTitle;
     private Button buttonApply;
-    private static Prescription prescription;
-    private static String dniPatient;
+    private Prescription prescription;
     private List<Patient> patients;
     private List <String> fullNamePatientList;
     private List<Prescription> prescriptions;
@@ -66,16 +64,13 @@ public class PrescriptionManagementActivity extends AppCompatActivity {
 
         setUpListeners();
 
-        buttonApply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(spOperations.getSelectedItemPosition()==0){
-                     // Toast.makeText(this,getString(R.string.register_select_option), Toast.LENGTH_SHORT).show();
-                } else if(spOperations.getSelectedItemPosition()==1){
-                        createPrescription();
-                } else if (spOperations.getSelectedItemPosition()==2){
-                    deletePrescription();
-                }
+        buttonApply.setOnClickListener(v -> {
+            if(spOperations.getSelectedItemPosition()==0){
+                 Toast.makeText(PrescriptionManagementActivity.this, getString(R.string.register_select_option), Toast.LENGTH_SHORT).show();
+            } else if(spOperations.getSelectedItemPosition()==1){
+                    createPrescription();
+            } else if (spOperations.getSelectedItemPosition()==2){
+                deletePrescription();
             }
         });
     }
@@ -91,7 +86,6 @@ public class PrescriptionManagementActivity extends AppCompatActivity {
 
     private void initBindings(){
     spOperations = findViewById(R.id.sp_operation_pma);
-    etCod = findViewById(R.id.et_cod_prescription_pma);
     etName = findViewById(R.id.et_name_pma);
     etDescription = findViewById(R.id.et_description_pma);
     spPatients = findViewById(R.id.sp_select_patient_pma);
@@ -112,16 +106,16 @@ public class PrescriptionManagementActivity extends AppCompatActivity {
     private void initData(){
         patients = Database.getPatients(this);
         fullNamePatientList = new ArrayList<>();
-        fullNamePatientList.add(getString(R.string.create_prescription_option));
+        fullNamePatientList.add(getString(R.string.create_prescription_patient_sp_option));
         for (Patient patient : patients) {
             fullNamePatientList.add(patient.getName() + " " + patient.getLastName());
         }
 
         prescriptions = Database.getPrescriptions(this);
         fullPrescriptionList = new ArrayList<>();
-        fullPrescriptionList.add(getString(R.string.create_prescription_option));
+        fullPrescriptionList.add(getString(R.string.create_prescription_prescription_sp_option));
         for (Prescription prescription : prescriptions) {
-            fullPrescriptionList.add(prescription.getName() + " " + prescription.getCodPrescription()+" DNI: " + prescription.getDniPatient());
+            fullPrescriptionList.add(prescription.getName() + ", con codigo " + prescription.getCodPrescription()+" a " + prescription.getDniPatient());
         }
 
     }
@@ -143,7 +137,6 @@ public class PrescriptionManagementActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (spOperations.getSelectedItem().toString().equals(Constants.OPERATIONS_BORRAR)) {
                     spPatients.setVisibility(View.GONE);
-                    etCod.setVisibility(View.GONE);
                     etName.setVisibility(View.GONE);
                     etDescription.setVisibility(View.GONE);
                     spPrescriptions.setVisibility(View.VISIBLE);
@@ -152,7 +145,6 @@ public class PrescriptionManagementActivity extends AppCompatActivity {
 
                 } else if (spOperations.getSelectedItem().toString().equals(Constants.OPERATIONS_NUEVO)) {
                     spPatients.setVisibility(View.VISIBLE);
-                    etCod.setVisibility(View.GONE);
                     etName.setVisibility(View.VISIBLE);
                     etDescription.setVisibility(View.VISIBLE);
                     spPrescriptions.setVisibility(View.GONE);
@@ -170,13 +162,17 @@ public class PrescriptionManagementActivity extends AppCompatActivity {
 
     private void createPrescription(){
         String dniPatient= patients.get(spPatients.getSelectedItemPosition() - 1).getDni();
-        Integer cod = Integer.parseInt(etCod.getText().toString());
-        prescription = new Prescription(cod,etName.getText().toString(), etDescription.getText().toString(),dniPatient);
+        prescription = new Prescription(etName.getText().toString(), etDescription.getText().toString(),dniPatient);
         Database.createPrescription(this, prescription);
+
     }
 
     private void deletePrescription(){
-
-        
+        Integer cod= prescriptions.get(spPrescriptions.getSelectedItemPosition() - 1).getCodPrescription();
+        if(Database.deletePrescription(this, cod)){
+            Toast.makeText(this,getString(R.string.create_prescription_delete_text), Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this,getString(R.string.create_prescription_failure_delete_text), Toast.LENGTH_SHORT).show();
+        }
     }
 }

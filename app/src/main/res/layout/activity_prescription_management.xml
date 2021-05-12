@@ -62,24 +62,10 @@
         app:layout_constraintTop_toBottomOf="@+id/sp_operation_pma" />
 
     <EditText
-        android:id="@+id/et_cod_prescription_pma"
-        android:layout_width="247dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Codigo Medicamento"
-        android:inputType="text"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.097"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <EditText
         android:id="@+id/et_name_pma"
         android:layout_width="247dp"
         android:layout_height="46dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Nombre"
         android:inputType="text"
@@ -87,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_cod_prescription_pma" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
         android:id="@+id/et_description_pma"

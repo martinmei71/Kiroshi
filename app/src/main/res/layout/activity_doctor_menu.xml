@@ -28,6 +28,7 @@
         android:layout_marginTop="196dp"
         android:layout_marginEnd="48dp"
         android:background="@drawable/icono_pacientes_doctor"
+        android:onClick="onClickShowPatientList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
 
