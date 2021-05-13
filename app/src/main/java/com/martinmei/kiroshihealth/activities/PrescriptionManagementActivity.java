@@ -43,11 +43,11 @@ public class PrescriptionManagementActivity extends AppCompatActivity {
     private List<Prescription> prescriptions;
     private List <String> fullPrescriptionList;
 
+
     public static Intent newIntent(Context context){
         Intent intent = new Intent(context,PrescriptionManagementActivity.class);
         return intent;
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

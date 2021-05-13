@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 
 import com.martinmei.kiroshihealth.R;
 import com.martinmei.kiroshihealth.ddbb.Database;
+import com.martinmei.kiroshihealth.models.Doctor;
 import com.martinmei.kiroshihealth.models.Patient;
 
 import java.util.List;
@@ -27,6 +30,11 @@ public class PatientsListActivity extends AppCompatActivity implements OnPatient
   private TextView tvToolbar;
   private List<Patient> patients;
   private  PatientAdapter patientAdapter;
+
+    public static Intent newIntent(Context context){
+        Intent intent = new Intent(context,PatientsListActivity.class);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

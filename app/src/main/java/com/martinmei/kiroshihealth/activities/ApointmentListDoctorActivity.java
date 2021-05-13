@@ -10,11 +10,10 @@ import android.os.Bundle;
 import com.martinmei.kiroshihealth.R;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Appointment;
-import com.martinmei.kiroshihealth.models.Patient;
 
 import java.util.List;
 
-public class ApointmentListActivity extends AppCompatActivity {
+public class ApointmentListDoctorActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +24,10 @@ public class ApointmentListActivity extends AppCompatActivity {
         List<Appointment> appointments = Database.getAppointments(this);
 
 
-        AppointmentAdapter appointmentAdapter = new AppointmentAdapter(appointments);
+        AppointmentDoctorAdapter appointmentDoctorAdapter = new AppointmentDoctorAdapter(appointments);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recycledview_appointments.setLayoutManager(mLayoutManager);
         recycledview_appointments.setItemAnimator(new DefaultItemAnimator());
-        recycledview_appointments.setAdapter(appointmentAdapter);
+        recycledview_appointments.setAdapter(appointmentDoctorAdapter);
     }
 }

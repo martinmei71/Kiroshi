@@ -8,6 +8,8 @@
     <string name="text_modify">Modificar</string>
     <string name="text_save">Guardar Cambios</string>
     <string name="detail_title">Detalles</string>
+    <string name="edit">Editando </string>
+    <string name="incomlpete_data">Faltan datos necesarios</string>
 
     <!-- REGISTER -->
     <string name="register_dni_invalid">EL DNI ES INVALIDO</string>
@@ -42,6 +44,9 @@
     <string name="list_patient_no_patients">No hay pacientes</string>
     <string name="list_patient_deleted">Paciente eliminado correctamente</string>
     <string name="list_patient_failure_deleted">Paciente NO eliminado </string>
+
+    <!-- MY DATA DOCTORS -->
+    <string name="my_data_doctor_title">Mis datos </string>
 
 
 </resources>

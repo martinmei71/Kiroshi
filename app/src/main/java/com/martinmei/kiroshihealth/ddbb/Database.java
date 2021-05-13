@@ -202,6 +202,33 @@ public class Database extends SQLiteOpenHelper {
         return getDoctor(context, dni) != null;
     }
 
+    public static boolean updateDoctor(Context context, Doctor doctor){
+        boolean verify = false;
+        String dni = doctor.getDni();
+        SQLiteDatabase sqLiteDatabase = initWritableDDBB(context);
+
+        if (doctor == null) {
+            verify = false;
+        } else {
+            ContentValues values = new ContentValues();
+            values.put(DNI_DOC,doctor.getDni());
+            values.put(NAME, doctor.getName());
+            values.put(LAST_NAME, doctor.getLastName());
+            values.put(SPECIALTY, doctor.getSpecialty());
+            String selection = DNI_DOC + " = ?";
+            String[] condition = {dni};
+            int deletedRows = sqLiteDatabase.update(TABLE_DOCTOR,values,selection, condition);
+            if (deletedRows == 0) {
+                verify = false;
+            } else {
+                verify = true;
+            }
+        }
+
+        sqLiteDatabase.close();
+        return verify;
+    }
+
 
     public static List<Patient> getPatients(Context  context){
 

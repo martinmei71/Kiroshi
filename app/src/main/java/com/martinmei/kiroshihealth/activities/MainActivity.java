@@ -19,18 +19,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClickGoToNewUser(View view){
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
+        Intent intent = PrescriptionManagementActivity.newIntent(this);
     }
 
     public void onClickGoToLoginDoctor(View view){
-        Intent intent = new Intent(this, AccessDniDoctorActivity.class);
-        startActivity(intent);
+        Intent intent = AccessDniDoctorActivity.newIntent(this);
     }
 
     public void onClickGoToLoginPaciente(View view){
-        Intent intent = new Intent(this, AccessDniPatientActivity.class);
-        startActivity(intent);
+        Intent intent = AccessDniPatientActivity.newIntent(this);
     }
 
 

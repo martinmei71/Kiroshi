@@ -1,9 +1,11 @@
 package com.martinmei.kiroshihealth.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,11 +22,8 @@ public class PatientsMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pacientes);
-
         initBindings();
-
         initData();
-
         initToolbar();
 
     }
@@ -38,6 +37,14 @@ public class PatientsMenuActivity extends AppCompatActivity {
         tvToolbar = findViewById(R.id.toolbar_title);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     private void initToolbar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);

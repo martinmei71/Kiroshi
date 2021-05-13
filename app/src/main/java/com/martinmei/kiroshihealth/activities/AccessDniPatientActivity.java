@@ -2,6 +2,7 @@ package com.martinmei.kiroshihealth.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,11 @@ import com.martinmei.kiroshihealth.models.Patient;
 public class AccessDniPatientActivity extends AppCompatActivity {
 
     private EditText dniP;
+
+    public static Intent newIntent(Context context){
+        Intent intent = new Intent(context,AccessDniPatientActivity.class);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

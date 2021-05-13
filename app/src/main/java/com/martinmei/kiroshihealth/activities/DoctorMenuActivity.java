@@ -56,11 +56,13 @@ public class DoctorMenuActivity extends AppCompatActivity {
     }
 
     public void onClickManagementPrescriptions(View view){
-        startActivity(PrescriptionManagementActivity.newIntent(this));
+        Intent intent = PrescriptionManagementActivity.newIntent(this);
     }
     public void onClickShowPatientList(View view){
-        Intent patientListIntent = new Intent(this, PatientsListActivity.class);
-        startActivity(patientListIntent);
+        Intent intent = PatientsListActivity.newIntent(this);
+    }
+    public void onClickShowMyDoctorData(View view){
+        Intent intent = MyDataDoctorActivity.newIntent(this,doctor);
     }
 
     private void initUI(){

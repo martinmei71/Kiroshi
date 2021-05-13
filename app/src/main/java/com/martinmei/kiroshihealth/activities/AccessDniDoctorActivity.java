@@ -3,6 +3,8 @@ package com.martinmei.kiroshihealth.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -19,6 +21,11 @@ public class AccessDniDoctorActivity extends AppCompatActivity {
     private EditText etDniDoc;
     private Toolbar toolbar;
     private TextView tvToolbar;
+
+    public static Intent newIntent(Context context){
+        Intent intent = new Intent(context,AccessDniDoctorActivity.class);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

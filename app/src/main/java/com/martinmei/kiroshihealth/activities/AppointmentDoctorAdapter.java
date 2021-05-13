@@ -13,7 +13,7 @@ import com.martinmei.kiroshihealth.models.Appointment;
 
 import java.util.List;
 
-public class AppointmentAdapter  extends RecyclerView.Adapter<AppointmentAdapter.MyViewHolder> {
+public class AppointmentDoctorAdapter extends RecyclerView.Adapter<AppointmentDoctorAdapter.MyViewHolder> {
     private List<Appointment> appointmentList;
 
     public List<Appointment> getAppointmentList() {
@@ -24,13 +24,13 @@ public class AppointmentAdapter  extends RecyclerView.Adapter<AppointmentAdapter
         this.appointmentList = appointmentList;
     }
 
-    public  AppointmentAdapter(List<Appointment> appointmentList) {
+    public AppointmentDoctorAdapter(List<Appointment> appointmentList) {
         this.appointmentList = appointmentList;
     }
 
     @NonNull
     @Override
-    public AppointmentAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public AppointmentDoctorAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View appointmentROW = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_appointment, viewGroup, false);
                 return new MyViewHolder(appointmentROW);
     }
