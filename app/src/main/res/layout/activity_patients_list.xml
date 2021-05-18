@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.PatientsListActivity">
+    tools:context=".activities.doctor.PatientsListActivity">
 
     <include
         android:id="@+id/content_toolbar"
@@ -13,7 +13,7 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycled_view_patients"
+        android:id="@+id/recycled_view_patients_patient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

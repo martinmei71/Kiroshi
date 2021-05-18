@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.AccessDniPatientActivity">
+    tools:context=".activities.patient.AccessDniPatientActivity">
 
     <include
         android:id="@+id/content_toolbar"
@@ -20,6 +20,7 @@
         android:layout_marginBottom="52dp"
         android:backgroundTint="#22B573"
         android:fontFamily="@font/averia_serif_libre_bold"
+        android:onClick="onClickEnter"
         android:text="Entrar"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

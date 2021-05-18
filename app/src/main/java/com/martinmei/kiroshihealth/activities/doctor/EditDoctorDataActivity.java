@@ -1,4 +1,4 @@
-package com.martinmei.kiroshihealth.activities;
+package com.martinmei.kiroshihealth.activities.doctor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class EditDoctorDataActivity extends AppCompatActivity {
         initBindings();
         initToolbar();
         initData();
+        initUI();
     }
 
     @Override
@@ -68,15 +70,18 @@ public class EditDoctorDataActivity extends AppCompatActivity {
         tvDni = findViewById(R.id.tv_dni_edda);
     }
 
-    private void initData() {
-        doctor = getIntent().getParcelableExtra(Intent.EXTRA_INTENT);
-        etName.setHint(doctor.getName());
-        etLastName.setHint(doctor.getLastName());
-        etSpecialty.setHint(doctor.getSpecialty());
+    private void initUI() {
+        etName.setText(doctor.getName());
+        etLastName.setText(doctor.getLastName());
+        etSpecialty.setText(doctor.getSpecialty());
         tvDni.setText(doctor.getDni());
     }
 
-    private boolean verification(){
+    private  void initData(){
+        doctor = getIntent().getParcelableExtra(Intent.EXTRA_INTENT);
+    }
+
+    private boolean validateDoctorForm(){
         if (Utils.isEmpty(etName) || Utils.isEmpty(etLastName) || Utils.isEmpty(etSpecialty)) {
             Toast.makeText(this, getString(R.string.incomlpete_data), Toast.LENGTH_SHORT).show();
             return false;
@@ -84,12 +89,12 @@ public class EditDoctorDataActivity extends AppCompatActivity {
         return true;
     }
 
-
-    private void updateDataDoctor(){
-        if(verification()){
+    public void onClickUpdateDataDoctor(View view){
+        if(validateDoctorForm()){
             Doctor doctorUpdated = new Doctor(doctor.getDni(),etName.getText().toString(),etLastName.getText().toString(),etSpecialty.getText().toString());
             Database.updateDoctor(this,doctorUpdated);
+            finish();
         }
-
     }
+
 }

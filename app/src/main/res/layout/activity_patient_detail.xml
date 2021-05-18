@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="#FF3D00"
-    tools:context=".activities.PatientDetailActivity">
+    tools:context=".activities.doctor.PatientDetailActivity">
 
     <Button
-        android:id="@+id/btn_registrarme_rua2"
+        android:id="@+id/btn_delete_dpat_a"
         android:layout_width="295dp"
         android:layout_height="53dp"
         android:layout_marginBottom="52dp"
@@ -24,7 +24,10 @@
 
     <include
         android:id="@+id/content_toolbar"
-        layout="@layout/toolbar_default" />
+        layout="@layout/toolbar_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_patient_detail_name_last_name"

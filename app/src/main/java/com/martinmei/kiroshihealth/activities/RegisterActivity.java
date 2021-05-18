@@ -171,7 +171,7 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (Utils.isEmpty(etName) || Utils.isEmpty(etLastName)) {
             Toast.makeText(this, getString(R.string.register_incomlpete_data), Toast.LENGTH_SHORT).show();
             return false;
-        }else if (!Utils.validarTelefono(etTelephone)) {
+        }else if (!Utils.validatePhone(etTelephone)) {
             Toast.makeText(this, getString(R.string.register_wrong_phone), Toast.LENGTH_SHORT).show();
             return false;
         } else  if(spFullNameDoctor.getSelectedItemPosition() == 0){

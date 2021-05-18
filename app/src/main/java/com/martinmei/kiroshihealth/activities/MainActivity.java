@@ -2,11 +2,12 @@ package com.martinmei.kiroshihealth.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.activities.doctor.AccessDniDoctorActivity;
+import com.martinmei.kiroshihealth.activities.patient.AccessDniPatientActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,15 +20,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClickGoToNewUser(View view){
-        Intent intent = PrescriptionManagementActivity.newIntent(this);
+        startActivity(RegisterActivity.newIntent(this));
     }
 
     public void onClickGoToLoginDoctor(View view){
-        Intent intent = AccessDniDoctorActivity.newIntent(this);
+        startActivity(AccessDniDoctorActivity.newIntent(this));
     }
 
     public void onClickGoToLoginPaciente(View view){
-        Intent intent = AccessDniPatientActivity.newIntent(this);
+        startActivity(AccessDniPatientActivity.newIntent(this));
     }
 
 

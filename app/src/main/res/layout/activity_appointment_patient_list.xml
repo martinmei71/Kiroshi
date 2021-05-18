@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.doctor.PatientsListActivity">
+    >
 
     <include
         android:id="@+id/content_toolbar"
@@ -13,15 +13,13 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycled_view_appointments"
+        android:id="@+id/recycled_view_appointment_patient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content_toolbar">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
 
     <TextView
         android:id="@+id/tv_appointment_list_no_data"
@@ -34,4 +32,5 @@
         android:textColor="#272727"
         android:textSize="20sp"
         android:visibility="invisible" />
+
 </LinearLayout>

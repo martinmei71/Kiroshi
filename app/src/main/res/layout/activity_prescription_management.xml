@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.PrescriptionManagementActivity">
+    tools:context=".activities.doctor.PrescriptionManagementActivity">
 
     <include
         android:id="@+id/content_toolbar"

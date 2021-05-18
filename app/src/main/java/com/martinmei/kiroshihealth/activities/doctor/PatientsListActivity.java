@@ -1,4 +1,4 @@
-package com.martinmei.kiroshihealth.activities;
+package com.martinmei.kiroshihealth.activities.doctor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,17 +24,19 @@ import java.util.List;
 
 public class PatientsListActivity extends AppCompatActivity implements OnPatientListener {
 
-  private  RecyclerView recycledviewPatients;
-  private TextView tvNoData;
-  private Toolbar toolbar;
-  private TextView tvToolbar;
-  private List<Patient> patients;
-  private  PatientAdapter patientAdapter;
-
-    public static Intent newIntent(Context context){
+    public static Intent newIntent(Context context, Doctor doctor){
         Intent intent = new Intent(context,PatientsListActivity.class);
+        intent.putExtra(Intent.EXTRA_INTENT, doctor);
         return intent;
     }
+
+    private RecyclerView recyclerviewPatients;
+    private TextView tvNoData;
+    private Toolbar toolbar;
+    private TextView tvToolbar;
+    private List<Patient> patients;
+    private Doctor doctor;
+    private PatientAdapter patientAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +55,6 @@ public class PatientsListActivity extends AppCompatActivity implements OnPatient
         updateUI();
     }
 
-    // COUSO DA FLECHA PARA IR ATRAS NA TOOLBAR
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == android.R.id.home){
@@ -71,26 +72,26 @@ public class PatientsListActivity extends AppCompatActivity implements OnPatient
         tvToolbar.setText(getString(R.string.list_patient_title));
     }
 
-
     public void initBindings(){
-        recycledviewPatients = findViewById(R.id.recycled_view_patients);
+        recyclerviewPatients = findViewById(R.id.recycled_view_patients_patient);
         tvNoData = findViewById(R.id.tv_patient_list_no_data);
         tvToolbar = findViewById(R.id.toolbar_title);
         toolbar = findViewById(R.id.toolbar);
     }
 
     private void initData(){
+        doctor = getIntent().getParcelableExtra(Intent.EXTRA_INTENT);
         patients = Database.getPatients(this);
     }
 
     public void initAdapter(){
             patientAdapter = new PatientAdapter( this);
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-            recycledviewPatients.setLayoutManager(mLayoutManager);
-            recycledviewPatients.setItemAnimator(new DefaultItemAnimator());
-            recycledviewPatients.setAdapter(patientAdapter);
-
+            recyclerviewPatients.setLayoutManager(mLayoutManager);
+            recyclerviewPatients.setItemAnimator(new DefaultItemAnimator());
+            recyclerviewPatients.setAdapter(patientAdapter);
     }
+
     private void showMessageNoDataIfIsNeeded(){
         if (patients.isEmpty()){
             tvNoData.setVisibility(View.VISIBLE);
@@ -109,7 +110,7 @@ public class PatientsListActivity extends AppCompatActivity implements OnPatient
     }
 
     private void updateUI(){
-        List<Patient> patients = Database.getPatients(this);
+        List<Patient> patients = Database.getDoctorPatients(this,doctor.getDni());
         patientAdapter.updatePatientList(patients);
         patientAdapter.notifyDataSetChanged();
         showMessageNoDataIfIsNeeded();

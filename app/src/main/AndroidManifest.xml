@@ -12,8 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KiroshiHealth">
-        <activity android:name=".activities.EditDoctorDataActivity"></activity>
-        <activity android:name=".activities.MyDataDoctorActivity" />
+        <activity android:name=".activities.patient.DoctorDataPatientActivity"></activity>
+        <activity android:name=".activities.patient.AppointmentPatientListActivity" />
+        <activity android:name=".activities.patient.AppointmentDetailActivity" />
+        <activity android:name=".activities.patient.DetailPrescriptionActivity" />
+        <activity android:name=".activities.patient.PatientPrescriptionsListActivity" />
+        <activity android:name=".activities.patient.CreateAppointmentActivity" />
+        <activity android:name=".activities.patient.EditPatientDataActivity" />
+        <activity android:name=".activities.patient.MyPatientDataActivity" />
+        <activity android:name=".activities.doctor.EditDoctorDataActivity" />
+        <activity android:name=".activities.doctor.MyDataDoctorActivity" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,14 +34,14 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".activities.PatientDetailActivity" />
-        <activity android:name=".activities.ApointmentListDoctorActivity" />
-        <activity android:name=".activities.PatientsListActivity" />
-        <activity android:name=".activities.DoctorMenuActivity" />
-        <activity android:name=".activities.PrescriptionManagementActivity" />
-        <activity android:name=".activities.AccessDniDoctorActivity" />
-        <activity android:name=".activities.AccessDniPatientActivity" />
-        <activity android:name=".activities.PatientsMenuActivity" />
+        <activity android:name=".activities.doctor.PatientDetailActivity" />
+        <activity android:name=".activities.doctor.ApointmentListDoctorActivity" />
+        <activity android:name=".activities.doctor.PatientsListActivity" />
+        <activity android:name=".activities.doctor.DoctorMenuActivity" />
+        <activity android:name=".activities.doctor.PrescriptionManagementActivity" />
+        <activity android:name=".activities.doctor.AccessDniDoctorActivity" />
+        <activity android:name=".activities.patient.AccessDniPatientActivity" />
+        <activity android:name=".activities.patient.PatientsMenuActivity" />
         <activity android:name=".activities.RegisterActivity" />
     </application>
 

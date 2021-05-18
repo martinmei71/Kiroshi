@@ -1,4 +1,4 @@
-package com.martinmei.kiroshihealth.activities;
+package com.martinmei.kiroshihealth.activities.doctor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

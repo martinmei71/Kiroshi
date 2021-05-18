@@ -1,12 +1,16 @@
-package com.martinmei.kiroshihealth.activities;
+package com.martinmei.kiroshihealth.activities.patient;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.martinmei.kiroshihealth.ddbb.Database;
@@ -16,6 +20,8 @@ import com.martinmei.kiroshihealth.models.Patient;
 public class AccessDniPatientActivity extends AppCompatActivity {
 
     private EditText dniP;
+    private Toolbar toolbar;
+    private TextView tvToolbar;
 
     public static Intent newIntent(Context context){
         Intent intent = new Intent(context,AccessDniPatientActivity.class);
@@ -27,10 +33,34 @@ public class AccessDniPatientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_access_dni_paciente);
 
-        dniP = findViewById(R.id.et_dnip);
+        initBindings();
+        initToolbar();
+
     }
 
-    public void onClickEntrar(View v) {
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void initBindings() {
+        toolbar = findViewById(R.id.toolbar);
+        tvToolbar = findViewById(R.id.toolbar_title);
+        dniP = findViewById(R.id.et_dnip);
+    }
+    private void initToolbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        tvToolbar.setText(getString(R.string.login_patient_title));
+    }
+
+    public void onClickEnter(View v) {
         String dni = dniP.getText().toString();
         if(Database.hasPatient(this, dni)) {
             Patient patient = Database.getPatient(this, dni);
@@ -40,8 +70,9 @@ public class AccessDniPatientActivity extends AppCompatActivity {
         }
     }
 
-    public void goToPatientMenu(Patient patient){
-        Intent intent = new Intent(this, PatientsMenuActivity.class);
+    private void goToPatientMenu(Patient patient){
+        Intent intent = PatientsMenuActivity.newIntent(this,patient);
         startActivity(intent);
     }
+
 }

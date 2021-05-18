@@ -9,7 +9,7 @@ public class Utils {
         return et.getText().toString().toUpperCase().matches("^[0-9]{8}[A-Z]{1}$");
     }
 
-    public static boolean validarTelefono(EditText et){
+    public static boolean validatePhone(EditText et){
 
         return et.getText().toString().matches("^[6-9]{1}[0-9]{8}$");
     }

@@ -3,17 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="center"
-        android:background="@color/colorPrimary"
+        android:background="@color/white"
         android:fitsSystemWindows="true"
         app:contentInsetStart="0dp"
-        app:theme="@style/ToolbarColoredWhiteArrow">
+        app:theme="@style/ToolbarColoredArrow">
 
         <TextView
             android:id="@+id/toolbar_title"
@@ -26,15 +27,16 @@
             android:ellipsize="end"
             android:fontFamily="@font/averia_serif_libre_bold"
             android:maxLines="1"
-            android:textColor="@android:color/white"
+            android:textColor="@color/black"
             tools:text="Toolbar" />
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
             android:layout_gravity="right"
             android:layout_marginRight="30dp"
-            app:srcCompat="@drawable/minilogo" />
+            app:srcCompat="@drawable/little_icon_kiroshi" />
+
     </androidx.appcompat.widget.Toolbar>
 
 </LinearLayout>

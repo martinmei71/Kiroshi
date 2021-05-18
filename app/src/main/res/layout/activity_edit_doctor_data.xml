@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.EditDoctorDataActivity">
+    tools:context=".activities.doctor.EditDoctorDataActivity">
 
     <TextView
         android:id="@+id/tv_dni_edda"
         android:layout_width="377dp"
         android:layout_height="46dp"
+        android:layout_marginStart="16dp"
         android:fontFamily="@font/averia_serif_libre_bold"
         android:gravity="center"
         android:text="123456789H"
@@ -17,7 +18,6 @@
         android:textColor="#0E0E0E"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
@@ -28,6 +28,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="#01A83E"
         android:fontFamily="@font/averia_serif_libre_bold"
+        android:onClick="onClickUpdateDataDoctor"
         android:text="Guardar Cambios"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,17 +47,17 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="228dp"
-        android:layout_height="474dp"
+        android:layout_width="104dp"
+        android:layout_height="126dp"
         android:alpha="129"
         android:background="#C6FFFFFF"
         android:backgroundTint="#22FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.327"
+        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/content_toolbar"
-        app:layout_constraintVertical_bias="0.841"
+        app:layout_constraintVertical_bias="0.843"
         app:srcCompat="@drawable/kiroshi_logominitraslucent" />
 
     <TextView
@@ -83,13 +84,12 @@
         android:id="@+id/et_name_edda"
         android:layout_width="340dp"
         android:layout_height="50dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:fontFamily="@font/averia_serif_libre_bold"
         android:hint="Escribe tu Nombre"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
@@ -97,12 +97,11 @@
         android:id="@+id/et_last_name_edda"
         android:layout_width="340dp"
         android:layout_height="50dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:fontFamily="@font/averia_serif_libre_bold"
         android:hint="Escribe tus Apellidos"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
@@ -110,12 +109,11 @@
         android:id="@+id/et_specialty_edda"
         android:layout_width="340dp"
         android:layout_height="50dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:fontFamily="@font/averia_serif_libre_bold"
         android:hint="Introduce tu Especialidad"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView27" />
 

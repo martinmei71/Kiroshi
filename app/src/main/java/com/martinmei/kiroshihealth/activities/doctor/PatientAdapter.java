@@ -1,4 +1,4 @@
-package com.martinmei.kiroshihealth.activities;
+package com.martinmei.kiroshihealth.activities.doctor;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class PatientAdapter  extends RecyclerView.Adapter<PatientAdapter.PatientViewHolder> implements View.OnClickListener {
     private List<Patient> patientList;
-    private OnPatientListener onPatientListener;
+    private final OnPatientListener onPatientListener;
 
     public  PatientAdapter(OnPatientListener onPatientListener) {
         this.onPatientListener = onPatientListener;
@@ -35,20 +35,16 @@ public class PatientAdapter  extends RecyclerView.Adapter<PatientAdapter.Patient
 
     @Override
     public void onBindViewHolder(@NonNull PatientViewHolder patientViewHolder, int i) {
-
             Patient patient = patientList.get(i);
             String dni = patient.getDni();
             String name = patient.getName().toUpperCase();
             String lastName = patient.getLastName().toUpperCase();
             String phone = patient.getPhone();
-
             patientViewHolder.textViewDni.setText("💳 " + dni);
             patientViewHolder.textViewName.setText(name);
             patientViewHolder.textViewLastName.setText(lastName);
             patientViewHolder.textViewPhone.setText("📞 " + phone);
-
             patientViewHolder.itemView.setTag(patient);
-
     }
 
     @Override
@@ -64,7 +60,6 @@ public class PatientAdapter  extends RecyclerView.Adapter<PatientAdapter.Patient
 
     public class PatientViewHolder extends RecyclerView.ViewHolder {
         TextView textViewDni, textViewName, textViewLastName, textViewPhone;
-
         PatientViewHolder(View itemView) {
             super(itemView);
             this.textViewDni = itemView.findViewById(R.id.tv_patient_row_dni);
@@ -78,5 +73,4 @@ public class PatientAdapter  extends RecyclerView.Adapter<PatientAdapter.Patient
 interface OnPatientListener{
 
     void onPatientItemClick(Patient patient);
-
 }
