@@ -11,11 +11,12 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Doctor;
 import com.martinmei.kiroshihealth.models.Patient;
 
-public class DoctorDataPatientActivity extends AppCompatActivity {
+public class DoctorDataPatientActivity extends BaseActivity {
 
     private TextView tvName;
     private TextView tvLastName;
@@ -40,15 +41,6 @@ public class DoctorDataPatientActivity extends AppCompatActivity {
         initData();
         initUI();
         initToolbar();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void initToolbar() {

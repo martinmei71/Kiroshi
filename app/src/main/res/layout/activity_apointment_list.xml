@@ -33,5 +33,6 @@
         android:textAlignment="center"
         android:textColor="#272727"
         android:textSize="20sp"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        tools:text="No hay citas" />
 </LinearLayout>

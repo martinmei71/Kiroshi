@@ -12,11 +12,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Doctor;
 import com.martinmei.kiroshihealth.models.Patient;
 
-public class MyPatientDataActivity extends AppCompatActivity {
+public class MyPatientDataActivity extends BaseActivity {
 
     private Patient patient;
     private Toolbar toolbar;
@@ -48,15 +49,6 @@ public class MyPatientDataActivity extends AppCompatActivity {
         super.onResume();
         patient = Database.getPatient(this,patient.getDni());
         initUI();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void initToolbar() {

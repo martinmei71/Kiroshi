@@ -85,12 +85,10 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
-    //Método para hacer cambio de versión de base de datos
+
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //gestion de cache online y cambio de version de base de datos
-        // -> de momento no nos interesa realizar acciones en este caso
-    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) { }
+
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
@@ -151,7 +149,6 @@ public class Database extends SQLiteOpenHelper {
         cursor.close();
         sqLiteDatabase.close();
         return doctors;
-
     }
 
     public static Doctor getDoctor(Context context, String dni){
@@ -177,7 +174,6 @@ public class Database extends SQLiteOpenHelper {
         return updatedRows != 0;
     }
 
-
     public static List<Patient> getPatients(Context  context){
         SQLiteDatabase sqLiteDatabase = initReadableDDBB(context);
         Cursor cursor = sqLiteDatabase.query(TABLE_PATIENT, new String[]{DNI_PATIENT,NAME, LAST_NAME,PHONE,DNI_DOC},null,null,null,null,null);
@@ -196,22 +192,15 @@ public class Database extends SQLiteOpenHelper {
         return patients;
     }
 
-    public static List<Patient> getDoctorPatients(Context context, String dniDoctor){
-        SQLiteDatabase sqLiteDatabase = initReadableDDBB(context);
-        Cursor cursor = sqLiteDatabase.query(TABLE_PATIENT, new String[]{DNI_PATIENT,NAME, LAST_NAME,PHONE,DNI_DOC}, DNI_DOC+"= ?", new String[]{dniDoctor}, null, null, null);
-        List<Patient> patients = new ArrayList<>();
-        while(cursor.moveToNext()) {
-            String dniPatient =cursor.getString(cursor.getColumnIndex(DNI_PATIENT));
-            String name = cursor.getString(cursor.getColumnIndex(NAME));
-            String lastName = cursor.getString(cursor.getColumnIndex(LAST_NAME));
-            String phone = cursor.getString(cursor.getColumnIndex(PHONE));
-            String dniDoc = cursor.getString(cursor.getColumnIndex(DNI_DOC));
-            Patient patient = new Patient(dniPatient,name,lastName,phone,dniDoc);
-            patients.add(patient);
+    public static List<Patient> getPatientsFromDoctor(Context context, String dniDoctor){
+        List <Patient> patientsFromDoctor = new ArrayList<>();
+        List <Patient> patientList = getPatients(context);
+        for(Patient patient : patientList){
+            if(patient.getDniDoc().equals(dniDoctor)){
+               patientsFromDoctor.add(patient);
+            }
         }
-        cursor.close();
-        sqLiteDatabase.close();
-        return patients;
+        return patientsFromDoctor;
     }
 
     public static Patient getPatient(Context context, String dni){
@@ -254,80 +243,29 @@ public class Database extends SQLiteOpenHelper {
         return prescriptions;
     }
 
-    public static List<Prescription> getPatientPrescriptions(Context context, String dni){
-        SQLiteDatabase sqLiteDatabase= initReadableDDBB(context);
-        Cursor cursor = sqLiteDatabase.query(TABLE_PRESCRIPTION, new String[]{COD_PRESCRIPTION,NAME,DESCRIPTION,DNI_PATIENT},DNI_PATIENT + "= ?",new String[]{dni},null,null,null);
-        List<Prescription> prescriptions = new ArrayList<>();
-        while(cursor.moveToNext()) {
-            Integer cod = Integer.parseInt(cursor.getString(cursor.getColumnIndex(COD_PRESCRIPTION)));
-            String name = cursor.getString(cursor.getColumnIndex(NAME));
-            String description = cursor.getString(cursor.getColumnIndex(DESCRIPTION));
-            dni = cursor.getString(cursor.getColumnIndex(DNI_PATIENT));
-            Prescription patient = new Prescription(cod,name,description,dni);
-            prescriptions.add(patient);
+    public static List<Prescription> getPrescriptionsFromPatient(Context context, String dni){
+        List<Prescription> prescriptionsFromPatient = new ArrayList<>();
+        List<Prescription> prescriptions = getPrescriptions(context);
+        for(Prescription prescription : prescriptions){
+            if(prescription.getDniPatient().equals(dni)){
+                prescriptionsFromPatient.add(prescription);
+            }
         }
-        cursor.close();
-        sqLiteDatabase.close();
-        return prescriptions;
-    }
-    public static boolean deletePrescription(Context context,String code) {
-        boolean verify = false;
-        SQLiteDatabase sqLiteDatabase = initWritableDDBB(context);
-        if (code.length() == 0) {
-            verify = false;
-        } else {
-            String selection = COD_PRESCRIPTION + " = ?";
-            String[] condition = {code};
-            int deletedRows = sqLiteDatabase.delete(TABLE_PRESCRIPTION, selection, condition);
-            verify = deletedRows != 0;
-        }
-        sqLiteDatabase.close();
-        return verify;
+        return prescriptionsFromPatient;
     }
 
     public static boolean deletePatient(Context context,String dni) {
-        boolean verify = false;
         SQLiteDatabase sqLiteDatabase = initWritableDDBB(context);
-        if (dni.length() == 0) {
-            verify = false;
-        } else {
-            String selection = DNI_PATIENT + " = ?";
-            String[] condition = {dni};
-            int deletedRows = sqLiteDatabase.delete(TABLE_PATIENT, selection, condition);
-            verify = deletedRows != 0;
-        }
+        int deletedRows = sqLiteDatabase.delete(TABLE_PATIENT, DNI_PATIENT + " = ?", new String[]{dni});
         sqLiteDatabase.close();
-        return verify;
-    }
-
-    public static Prescription getPrescription(Context context, String code){
-        Prescription prescriptionSend = null;
-        List<Prescription> prescriptions = getPrescriptions(context);
-        for(Prescription prescription : prescriptions){
-            if(prescription.getCodPrescription().equals(Integer.parseInt(code))) {
-                prescriptionSend = new Prescription(prescription.getCodPrescription(),prescription.getName(),prescription.getDescription(),prescription.getDniPatient());
-            }
-        }
-        return prescriptionSend;
-    }
-
-    public static boolean hasPrescription(Context context,String code){
-        return getPatient(context, code) != null;
+        return deletedRows != 0;
     }
 
     public static boolean deletePrescription(Context context,Integer codPrescription) {
-        boolean verify = false;
         SQLiteDatabase sqLiteDatabase = initWritableDDBB(context);
-        if (codPrescription == 0) {
-            verify = false;
-        } else {
-            String selection = COD_PRESCRIPTION + " = ?";
-            String[] condition = {codPrescription.toString()};
-            int deletedRows = sqLiteDatabase.delete(TABLE_PRESCRIPTION, selection, condition);
-            verify = deletedRows != 0;
-        }
+        int deletedRows = sqLiteDatabase.delete(TABLE_PRESCRIPTION, COD_PRESCRIPTION + " = ?", new String[]{codPrescription.toString()});
         sqLiteDatabase.close();
-        return verify;
+        return deletedRows != 0;
     }
 
     public static List<Appointment> getAppointmentDoctor(Context context, Doctor doctor){
@@ -367,18 +305,10 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public static boolean deleteAppointment(Context context,Integer codAppointment) {
-        boolean verify = false;
         SQLiteDatabase sqLiteDatabase = initWritableDDBB(context);
-        if (codAppointment == 0) {
-            verify = false;
-        } else {
-                String selection = COD_APPOINTMENT + " = ?";
-            String[] condition = {codAppointment.toString()};
-            int deletedRows = sqLiteDatabase.delete(TABLE_APPOINTMENT, selection, condition);
-            verify = deletedRows != 0;
-        }
+        int deletedRows = sqLiteDatabase.delete(TABLE_APPOINTMENT, COD_APPOINTMENT + " = ?", new String[]{codAppointment.toString()});
         sqLiteDatabase.close();
-        return verify;
+        return deletedRows != 0;
     }
 
     private static ContentValues getDoctorContentValues(Doctor doctor){

@@ -20,12 +20,14 @@
         android:layout_width="74dp"
         android:layout_height="51dp"
         android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/averia_serif_libre_bold"
         android:gravity="center"
         android:text="1532"
         android:textAlignment="textStart"
         android:textColor="#000000"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
@@ -39,7 +41,7 @@
         android:textColor="#222222"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toEndOf="@+id/textView34"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,9 +49,11 @@
         android:id="@+id/tv_description_rwp"
         android:layout_width="276dp"
         android:layout_height="43dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/averia_serif_libre_bold"
         android:text="TextView"
         android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_cod_rwp"
         app:layout_constraintTop_toBottomOf="@+id/tv_subject_rwp" />
@@ -57,7 +61,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#171717"
+        android:layout_height="1sp"
+        android:background="#939393"
         app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

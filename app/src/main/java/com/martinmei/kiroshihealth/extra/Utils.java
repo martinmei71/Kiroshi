@@ -4,7 +4,7 @@ import android.widget.EditText;
 
 public class Utils {
 
-    public static boolean validarDNI(EditText et){
+    public static boolean validateDNI(EditText et){
 
         return et.getText().toString().toUpperCase().matches("^[0-9]{8}[A-Z]{1}$");
     }

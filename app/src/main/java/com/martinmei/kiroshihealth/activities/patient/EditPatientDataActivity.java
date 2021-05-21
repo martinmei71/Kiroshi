@@ -1,21 +1,18 @@
 package com.martinmei.kiroshihealth.activities.patient;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.extra.Utils;
 import com.martinmei.kiroshihealth.models.Doctor;
@@ -24,8 +21,7 @@ import com.martinmei.kiroshihealth.models.Patient;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditPatientDataActivity extends AppCompatActivity {
-
+public class EditPatientDataActivity extends BaseActivity {
 
     private Toolbar toolbar;
     private TextView tvToolbar;
@@ -54,15 +50,6 @@ public class EditPatientDataActivity extends AppCompatActivity {
         initSpinner();
         initToolbar();
         initUI();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void initToolbar() {
@@ -109,7 +96,16 @@ public class EditPatientDataActivity extends AppCompatActivity {
 
     private boolean verification(){
         if (Utils.isEmpty(etName) || Utils.isEmpty(etLastName) || Utils.validatePhone(etPhone)) {
-            Toast.makeText(this, getString(R.string.incomlpete_data), Toast.LENGTH_SHORT).show();
+            if(Utils.isEmpty(etName)){
+                etName.setError(getString(R.string.common_text_empty));
+            }
+            if(Utils.isEmpty(etLastName)){
+                etLastName.setError(getString(R.string.common_text_empty));
+            }
+            if(Utils.isEmpty(etPhone)){
+               etPhone.setError(getString(R.string.common_text_empty));
+            }
+            showErrorMessage(getString(R.string.error_at_operation));
             return false;
         }
         return true;
@@ -119,8 +115,8 @@ public class EditPatientDataActivity extends AppCompatActivity {
         if(verification()){
             Patient patientUpdated = new Patient(patient.getDni(),etName.getText().toString(),etLastName.getText().toString(),getDniSelectedDoctor(),etPhone.getText().toString());
             Database.updatePatient(this,patientUpdated);
+            showMessage(getString(R.string.text_saved));
             finish();
         }
-
     }
 }

@@ -1,4 +1,4 @@
-package com.martinmei.kiroshihealth.activities.patient;
+package com.martinmei.kiroshihealth.activities.patient.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +36,7 @@ public class PrescriptionAdapter extends RecyclerView.Adapter<PrescriptionAdapte
     @Override
     public void onBindViewHolder(@NonNull PrescriptionViewHolder prescriptionViewHolder, int i) {
         Prescription prescription = prescriptionList.get(i);
-        Integer cod = prescription.getCodPrescription();
+        String cod = prescription.getCodPrescription().toString();
         String subject = prescription.getName().toUpperCase();
         String description = prescription.getDescription();
         prescriptionViewHolder.tvCode.setText(cod);
@@ -64,11 +64,5 @@ public class PrescriptionAdapter extends RecyclerView.Adapter<PrescriptionAdapte
             this.tvDescription = itemView.findViewById(R.id.tv_description_rwp);
         }
     }
-}
-
-interface OnPrescriptionListener{
-
-    void onPrescriptionItemClick(Prescription prescription);
-
 }
 

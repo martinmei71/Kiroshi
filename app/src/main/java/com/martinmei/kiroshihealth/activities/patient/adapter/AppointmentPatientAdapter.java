@@ -1,4 +1,4 @@
-package com.martinmei.kiroshihealth.activities.patient;
+package com.martinmei.kiroshihealth.activities.patient.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,8 +67,3 @@ public class AppointmentPatientAdapter extends RecyclerView.Adapter<AppointmentP
     }
 }
 
-interface OnAppointmentListener {
-
-    void onAppointmentItemClick(Appointment appointment);
-
-}

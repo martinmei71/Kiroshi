@@ -13,11 +13,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.R;
 import com.martinmei.kiroshihealth.models.Patient;
 
-public class AccessDniPatientActivity extends AppCompatActivity {
+public class AccessDniPatientActivity extends BaseActivity {
 
     private EditText dniP;
     private Toolbar toolbar;
@@ -38,15 +39,6 @@ public class AccessDniPatientActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     private void initBindings() {
         toolbar = findViewById(R.id.toolbar);
         tvToolbar = findViewById(R.id.toolbar_title);
@@ -62,17 +54,18 @@ public class AccessDniPatientActivity extends AppCompatActivity {
 
     public void onClickEnter(View v) {
         String dni = dniP.getText().toString();
-        if(Database.hasPatient(this, dni)) {
+        if (Database.hasPatient(this, dni)) {
             Patient patient = Database.getPatient(this, dni);
             goToPatientMenu(patient);
-        }else{
-            Toast.makeText(this, getString(R.string.login_no_patient_data), Toast.LENGTH_SHORT).show();
+        } else {
+            showErrorMessage(getString(R.string.login_no_patient_data));
         }
     }
 
     private void goToPatientMenu(Patient patient){
         Intent intent = PatientsMenuActivity.newIntent(this,patient);
         startActivity(intent);
+        finish();
     }
 
 }

@@ -14,13 +14,16 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.activities.BaseActivity;
+import com.martinmei.kiroshihealth.activities.patient.adapter.AppointmentPatientAdapter;
+import com.martinmei.kiroshihealth.activities.patient.adapter.OnAppointmentListener;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Appointment;
 import com.martinmei.kiroshihealth.models.Patient;
 
 import java.util.List;
 
-public class AppointmentPatientListActivity extends AppCompatActivity implements OnAppointmentListener {
+public class AppointmentPatientListActivity extends BaseActivity implements OnAppointmentListener {
 
     private RecyclerView recyclerviewAppointments;
 
@@ -46,19 +49,11 @@ public class AppointmentPatientListActivity extends AppCompatActivity implements
         initAdapter();
         initToolbar();
     }
+
     @Override
     protected void onResume() {
         super.onResume();
         updateUI();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void initToolbar() {

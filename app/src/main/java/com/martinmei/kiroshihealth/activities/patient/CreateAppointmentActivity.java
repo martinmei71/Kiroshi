@@ -1,30 +1,23 @@
 package com.martinmei.kiroshihealth.activities.patient;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
+import com.martinmei.kiroshihealth.extra.Utils;
 import com.martinmei.kiroshihealth.models.Appointment;
 import com.martinmei.kiroshihealth.models.Doctor;
 import com.martinmei.kiroshihealth.models.Patient;
 
-public class CreateAppointmentActivity extends AppCompatActivity {
-
-    public static Intent newIntent(Context context, Patient patient){
-        Intent intent = new Intent(context,CreateAppointmentActivity.class);
-        intent.putExtra(Intent.EXTRA_INTENT, patient);
-        return intent;
-    }
+public class CreateAppointmentActivity extends BaseActivity {
 
     private EditText etDate;
     private EditText etSubject;
@@ -34,6 +27,12 @@ public class CreateAppointmentActivity extends AppCompatActivity {
     private TextView tvDoctorFullName;
     private Patient patient;
     private Doctor doctor;
+
+    public static Intent newIntent(Context context, Patient patient){
+        Intent intent = new Intent(context,CreateAppointmentActivity.class);
+        intent.putExtra(Intent.EXTRA_INTENT, patient);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,21 +44,12 @@ public class CreateAppointmentActivity extends AppCompatActivity {
         initUI();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     private void initToolbar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        tvToolbar.setText(getString(R.string.my_data_doctor_title));
+        tvToolbar.setText(getString(R.string.create_appointment_title));
     }
 
     private void initBindings(){
@@ -81,9 +71,27 @@ public class CreateAppointmentActivity extends AppCompatActivity {
         tvDoctorFullName.setText(doctor.getName()+" "+doctor.getLastName());
     }
 
+    private boolean validateFields(){
+        if(Utils.isEmpty(etSubject) || Utils.isEmpty(etDate)){
+            if(Utils.isEmpty(etSubject)){
+                etSubject.setError(getString(R.string.common_text_empty));
+            } else if(Utils.isEmpty(etDate)){
+                etDate.setError(getString(R.string.common_text_empty));
+            } else{
+            showErrorMessage(getString(R.string.error_at_operation));
+            }
+            return false;
+        }
+        return true;
+    }
+
     public void onClickCreateAppointment(View view){
-        Appointment appointment = new Appointment(etSubject.getText().toString(),etDate.getText().toString(),patient.getDni(),patient.getDniDoc());
-        Database.createAppointment(this,appointment);
+       if(validateFields()) {
+           Appointment appointment = new Appointment(etSubject.getText().toString(), etDate.getText().toString(), patient.getDni(), patient.getDniDoc());
+           Database.createAppointment(this, appointment);
+           showMessage(getString(R.string.text_saved));
+           finish();
+       } 
     }
 
 }

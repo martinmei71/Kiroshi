@@ -1,4 +1,4 @@
-package com.martinmei.kiroshihealth.activities.doctor;
+package com.martinmei.kiroshihealth.activities.doctor.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -70,7 +70,3 @@ public class PatientAdapter  extends RecyclerView.Adapter<PatientAdapter.Patient
     }
 }
 
-interface OnPatientListener{
-
-    void onPatientItemClick(Patient patient);
-}

@@ -1,24 +1,21 @@
 package com.martinmei.kiroshihealth.activities.doctor;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.extra.Utils;
 import com.martinmei.kiroshihealth.models.Doctor;
 
-public class EditDoctorDataActivity extends AppCompatActivity {
+public class EditDoctorDataActivity extends BaseActivity {
 
     private EditText etName;
     private EditText etLastName;
@@ -44,21 +41,12 @@ public class EditDoctorDataActivity extends AppCompatActivity {
         initUI();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     private void initToolbar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        tvToolbar.setText(getString(R.string.edit));
+        tvToolbar.setText(getString(R.string.common_edit_title));
     }
 
     private void initBindings() {
@@ -83,7 +71,15 @@ public class EditDoctorDataActivity extends AppCompatActivity {
 
     private boolean validateDoctorForm(){
         if (Utils.isEmpty(etName) || Utils.isEmpty(etLastName) || Utils.isEmpty(etSpecialty)) {
-            Toast.makeText(this, getString(R.string.incomlpete_data), Toast.LENGTH_SHORT).show();
+            if(Utils.isEmpty(etLastName)) {
+                etLastName.setError(getString(R.string.common_text_empty));
+            }
+            if(Utils.isEmpty(etName)){
+                etName.setError(getString(R.string.common_text_empty));
+            }
+            if(Utils.isEmpty(etSpecialty)){
+                etSpecialty.setError(getString(R.string.common_text_empty));
+            }
             return false;
         }
         return true;
@@ -92,8 +88,14 @@ public class EditDoctorDataActivity extends AppCompatActivity {
     public void onClickUpdateDataDoctor(View view){
         if(validateDoctorForm()){
             Doctor doctorUpdated = new Doctor(doctor.getDni(),etName.getText().toString(),etLastName.getText().toString(),etSpecialty.getText().toString());
-            Database.updateDoctor(this,doctorUpdated);
-            finish();
+           if(Database.updateDoctor(this, doctorUpdated)){
+               showMessage(getString(R.string.text_saved));
+               finish();
+           } else {
+               showErrorMessage(getString(R.string.error_at_operation));
+           }
+
+
         }
     }
 

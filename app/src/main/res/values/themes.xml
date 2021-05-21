@@ -2,16 +2,23 @@
     <!-- Base application theme. -->
     <style name="Theme.KiroshiHealth" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#2FFFAF</item>
-        <item name="colorPrimaryVariant">#14C16C</item>
+        <item name="colorPrimary">#5A67F1</item>
+        <item name="colorPrimaryVariant">#FBB03B</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">#5A67F1</item>
+        <item name="colorSecondaryVariant">#4651BE</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.KiroshiHealthStatusBarColorYellow" parent="Theme.KiroshiHealth">
+        <item name="android:statusBarColor" tools:targetApi="l">#FBB03B</item>
+        <item name="android:windowLightStatusBar">false</item>
+
     </style>
 
     <style name="ToolbarColoredArrow" parent="Theme.KiroshiHealth">

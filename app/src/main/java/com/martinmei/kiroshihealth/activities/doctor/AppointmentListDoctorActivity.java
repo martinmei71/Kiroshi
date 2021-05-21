@@ -1,7 +1,5 @@
 package com.martinmei.kiroshihealth.activities.doctor;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,11 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.martinmei.kiroshihealth.R;
+
+import com.martinmei.kiroshihealth.activities.BaseActivity;
+import com.martinmei.kiroshihealth.activities.doctor.adapter.AppointmentDoctorAdapter;
+import com.martinmei.kiroshihealth.activities.doctor.adapter.OnAppointmentDoctorListener;
 import com.martinmei.kiroshihealth.activities.patient.AppointmentDetailActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Appointment;
@@ -21,7 +22,7 @@ import com.martinmei.kiroshihealth.models.Doctor;
 
 import java.util.List;
 
-public class ApointmentListDoctorActivity extends AppCompatActivity implements OnAppointmentDoctorListener {
+public class AppointmentListDoctorActivity extends BaseActivity implements OnAppointmentDoctorListener {
 
     private RecyclerView recyclerviewAppointments;
 
@@ -33,7 +34,7 @@ public class ApointmentListDoctorActivity extends AppCompatActivity implements O
     private AppointmentDoctorAdapter appointmentDoctorAdapter;
 
     public static Intent newIntent(Context context, Doctor doctor){
-        Intent intent = new Intent(context, ApointmentListDoctorActivity.class);
+        Intent intent = new Intent(context, AppointmentListDoctorActivity.class);
         intent.putExtra(Intent.EXTRA_INTENT, doctor);
         return intent;
     }
@@ -52,15 +53,6 @@ public class ApointmentListDoctorActivity extends AppCompatActivity implements O
     protected void onResume() {
         super.onResume();
         updateUI();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void initToolbar() {

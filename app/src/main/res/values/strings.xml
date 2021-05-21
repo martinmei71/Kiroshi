@@ -3,18 +3,27 @@
 
     <!-- COMMON -->
     <string name="common_data_not_found">Datos no encontrados</string>
-    <string name="text_new">Dar de alta</string>
-    <string name="text_delete">Borrar</string>
-    <string name="text_modify">Modificar</string>
-    <string name="text_save">Guardar Cambios</string>
+    <string name="common_text_new">Dar de alta</string>
+    <string name="common_text_delete">Borrar</string>
+    <string name="common_text_modify">Modificar</string>
+    <string name="common_text_empty">Debes cubrir este campo</string>
+    <string name="common_text_save">Guardar Cambios</string>
+    <string name="text_saved">Cambios Aplicados</string>
+    <string name="common_text_deleted">Cambios Aplicados</string>
+    <string name="tick_message">✔</string>
+    <string name="error_message">⚠</string>
     <string name="detail_title">Detalles</string>
-    <string name="edit">Editando </string>
+    <string name="common_edit_title">Editando </string>
+    <string name="list_prescriptions_title">Recetas</string>
     <string name="incomlpete_data">Faltan datos necesarios</string>
+    <string name="error_at_operation">Error en la operación</string>
+    <string name="error_at_update">Error al actualizar</string>
 
     <!-- REGISTER -->
     <string name="register_dni_invalid">EL DNI ES INVALIDO</string>
+    <string name="register_dni_in_use">EL DNI YA ESTA SIENDO USADO</string>
     <string name="register_toolbar_title">Registro</string>
-    <string name="register_select_option">Debes seleccionar un tipo de Usuario</string>
+    <string name="register_select_option">Debes seleccionar una opcion</string>
     <string name="register_incomlpete_data">Datos Incompletos</string>
     <string name="register_wrong_phone">TELEFONO NO VALIDO</string>
     <string name="register_wrong_dni">DNI NO VALIDO</string>
@@ -28,6 +37,7 @@
 
     <!-- PRESCRIPTIONS -->
     <string name="create_prescription_patient_sp_option">Selecciona un Paciente</string>
+    <string name="create_prescription_error_operation">Selecciona una Operacion</string>
     <string name="create_prescription_prescription_sp_option">Selecciona una Receta</string>
     <string name="create_prescription_toolbar_text">Gestión de Recetas</string>
     <string name="create_prescription_delete_text">Borrado correctamente</string>
@@ -49,13 +59,14 @@
     <string name="list_appointment_title">Citas</string>
     <string name="list_appointments_empty">No hay citas</string>
     <string name="list_appointment_deleted">Cita eliminada correctamente</string>
-    <string name="list_appointment_failure_deleted">Cita NO eliminado </string>
+    <string name="list_appointment_failure_deleted">Cita NO eliminada </string>
 
     <!-- MY DATA DOCTORS -->
     <string name="my_data_doctor_title">Mis datos </string>
 
     <!-- CREATE APPOINTMENT -->
     <string name="create_appointment_title">Solicitar Cita </string>
+
     <!-- DOCTOR DATA -->
     <string name="doctor_data_title">Mi Doctor</string>
 

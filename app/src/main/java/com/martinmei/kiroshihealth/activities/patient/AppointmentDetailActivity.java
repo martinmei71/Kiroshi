@@ -13,10 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Appointment;
 
-public class AppointmentDetailActivity extends AppCompatActivity {
+public class AppointmentDetailActivity extends BaseActivity {
 
     private TextView tvCode;
     private TextView tvDate;
@@ -40,15 +41,6 @@ public class AppointmentDetailActivity extends AppCompatActivity {
         initData();
         initToolbar();
         initUI();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void initToolbar() {
@@ -81,8 +73,9 @@ public class AppointmentDetailActivity extends AppCompatActivity {
 
     public void onClickDeleteButton(View view){
         if(!Database.deleteAppointment(this,appointment.getCodMeet())){
-            Toast.makeText(this, getString(R.string.list_appointment_failure_deleted), Toast.LENGTH_SHORT).show();
+            showErrorMessage(getString(R.string.list_appointment_failure_deleted));
         } else {
+            showMessage(getString(R.string.text_saved));
             finish();
         }
     }

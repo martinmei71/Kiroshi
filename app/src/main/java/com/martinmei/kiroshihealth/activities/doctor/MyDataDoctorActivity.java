@@ -13,10 +13,11 @@ import android.widget.TextView;
 
 
 import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Doctor;
 
-public class MyDataDoctorActivity extends AppCompatActivity {
+public class MyDataDoctorActivity extends BaseActivity {
 
     private TextView tvFullName;
     private TextView tvDNI;
@@ -44,15 +45,6 @@ public class MyDataDoctorActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         updateUI();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void initToolbar() {

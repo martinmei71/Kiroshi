@@ -12,7 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KiroshiHealth">
-        <activity android:name=".activities.patient.DoctorDataPatientActivity"></activity>
+
+        <activity
+            android:name=".activities.SplashActivity"
+            android:theme="@style/Theme.KiroshiHealthStatusBarColorYellow" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+        android:name="preloaded_fonts"
+        android:resource="@array/preloaded_fonts" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.patient.DoctorDataPatientActivity" />
         <activity android:name=".activities.patient.AppointmentPatientListActivity" />
         <activity android:name=".activities.patient.AppointmentDetailActivity" />
         <activity android:name=".activities.patient.DetailPrescriptionActivity" />
@@ -22,20 +36,8 @@
         <activity android:name=".activities.patient.MyPatientDataActivity" />
         <activity android:name=".activities.doctor.EditDoctorDataActivity" />
         <activity android:name=".activities.doctor.MyDataDoctorActivity" />
-        <activity android:name=".activities.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
         <activity android:name=".activities.doctor.PatientDetailActivity" />
-        <activity android:name=".activities.doctor.ApointmentListDoctorActivity" />
+        <activity android:name=".activities.doctor.AppointmentListDoctorActivity" />
         <activity android:name=".activities.doctor.PatientsListActivity" />
         <activity android:name=".activities.doctor.DoctorMenuActivity" />
         <activity android:name=".activities.doctor.PrescriptionManagementActivity" />

@@ -1,7 +1,5 @@
 package com.martinmei.kiroshihealth.activities.doctor;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,19 +8,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 
 import com.martinmei.kiroshihealth.R;
+
+import com.martinmei.kiroshihealth.activities.BaseActivity;
+import com.martinmei.kiroshihealth.activities.doctor.adapter.OnPatientListener;
+import com.martinmei.kiroshihealth.activities.doctor.adapter.PatientAdapter;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Doctor;
 import com.martinmei.kiroshihealth.models.Patient;
 
 import java.util.List;
 
-public class PatientsListActivity extends AppCompatActivity implements OnPatientListener {
+public class PatientsListActivity extends BaseActivity implements OnPatientListener {
 
     public static Intent newIntent(Context context, Doctor doctor){
         Intent intent = new Intent(context,PatientsListActivity.class);
@@ -53,15 +54,6 @@ public class PatientsListActivity extends AppCompatActivity implements OnPatient
     protected void onResume() {
         super.onResume();
         updateUI();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void initToolbar() {
@@ -110,7 +102,7 @@ public class PatientsListActivity extends AppCompatActivity implements OnPatient
     }
 
     private void updateUI(){
-        List<Patient> patients = Database.getDoctorPatients(this,doctor.getDni());
+        List<Patient> patients = Database.getPatientsFromDoctor(this,doctor.getDni());
         patientAdapter.updatePatientList(patients);
         patientAdapter.notifyDataSetChanged();
         showMessageNoDataIfIsNeeded();

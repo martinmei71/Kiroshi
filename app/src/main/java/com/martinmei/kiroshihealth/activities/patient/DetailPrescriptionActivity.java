@@ -1,19 +1,22 @@
 package com.martinmei.kiroshihealth.activities.patient;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Prescription;
 
-public class DetailPrescriptionActivity extends AppCompatActivity {
+public class DetailPrescriptionActivity extends BaseActivity {
 
     private TextView tvCode;
     private TextView tvName;
@@ -35,6 +38,15 @@ public class DetailPrescriptionActivity extends AppCompatActivity {
         initBindings();
         initData();
         initUI();
+        initToolbar();
+    }
+
+    private void initToolbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        tvToolbar.setText(getString(R.string.common_edit_title));
     }
 
     private void initBindings(){
@@ -50,12 +62,18 @@ public class DetailPrescriptionActivity extends AppCompatActivity {
     }
 
     private void initUI(){
-        tvCode.setText(prescription.getCodPrescription());
+        tvCode.setText(prescription.getCodPrescription().toString());
         tvName.setText(prescription.getName());
         tvDescription.setText(prescription.getDescription());
     }
 
     public void onClickDeletePrescription(View view){
-        Database.deletePrescription(this,prescription.getCodPrescription());
+        if(Database.deletePrescription(this,prescription.getCodPrescription())){
+            showMessage(getString(R.string.common_text_deleted));
+            finish();
+        } else {
+            showErrorMessage(getString(R.string.error_at_operation));
+        }
+
     }
 }

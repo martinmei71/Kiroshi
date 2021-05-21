@@ -1,7 +1,5 @@
 package com.martinmei.kiroshihealth.activities.patient;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,18 +8,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.activities.BaseActivity;
+import com.martinmei.kiroshihealth.activities.patient.adapter.OnPrescriptionListener;
+import com.martinmei.kiroshihealth.activities.patient.adapter.PrescriptionAdapter;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Patient;
 import com.martinmei.kiroshihealth.models.Prescription;
 
 import java.util.List;
 
-public class PatientPrescriptionsListActivity extends AppCompatActivity implements OnPrescriptionListener {
+public class PatientPrescriptionsListActivity extends BaseActivity implements OnPrescriptionListener {
 
     private TextView tvNoData;
     private TextView tvToolbar;
@@ -53,21 +53,12 @@ public class PatientPrescriptionsListActivity extends AppCompatActivity implemen
         updateUI();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     private void initToolbar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        tvToolbar.setText(getString(R.string.list_patient_title));
+        tvToolbar.setText(getString(R.string.list_prescriptions_title));
     }
     private void initBindings(){
         recyclerviewPrescriptions = findViewById(R.id.rw_prescriptions_ppla);
@@ -78,7 +69,7 @@ public class PatientPrescriptionsListActivity extends AppCompatActivity implemen
 
     private void initData(){
         patient = getIntent().getParcelableExtra(Intent.EXTRA_INTENT);
-        prescriptions = Database.getPatientPrescriptions(this,patient.getDni());
+        prescriptions = Database.getPrescriptionsFromPatient(this,patient.getDni());
     }
 
     private void initAdapter(){
@@ -107,7 +98,7 @@ public class PatientPrescriptionsListActivity extends AppCompatActivity implemen
     }
 
     private void updateUI(){
-        List<Prescription> prescriptions = Database.getPatientPrescriptions(this,patient.getDni());
+        List<Prescription> prescriptions = Database.getPrescriptionsFromPatient(this, patient.getDni());
         prescriptionAdapter.updatePatientList(prescriptions);
         prescriptionAdapter.notifyDataSetChanged();
         showMessageNoDataIfIsNeeded();

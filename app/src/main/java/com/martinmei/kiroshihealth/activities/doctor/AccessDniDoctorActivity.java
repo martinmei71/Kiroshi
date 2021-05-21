@@ -14,11 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.martinmei.kiroshihealth.BuildConfig;
+import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.R;
 import com.martinmei.kiroshihealth.models.Doctor;
 
-public class AccessDniDoctorActivity extends AppCompatActivity {
+public class AccessDniDoctorActivity extends BaseActivity {
 
     private EditText etDniDoc;
     private Toolbar toolbar;
@@ -30,19 +31,11 @@ public class AccessDniDoctorActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_access_dni_doctor);
         initBindings();
         initToolbar();
-    }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void initBindings(){
@@ -56,18 +49,19 @@ public class AccessDniDoctorActivity extends AppCompatActivity {
 
     public void onClickLoginDoctor(View v){
         String dni = etDniDoc.getText().toString();
-        if(Database.hasDoctor(this, dni)) {
+        if (Database.hasDoctor(this, dni)) {
             Doctor doctor = Database.getDoctor(this, dni);
             goToDoctorMenu(doctor);
-        }else{
-            Toast.makeText(this, getString(R.string.login_no_doctor_data), Toast.LENGTH_SHORT).show();
+        } else {
+            showErrorMessage(getString(R.string.login_no_doctor_data));
         }
     }
 
     public void goToDoctorMenu(Doctor doctor){
         startActivity(DoctorMenuActivity.newIntent(this, doctor));
-
+        finish();
     }
+
     private void initToolbar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);

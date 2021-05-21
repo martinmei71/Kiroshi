@@ -14,10 +14,11 @@ import android.widget.Toast;
 
 
 import com.martinmei.kiroshihealth.R;
+import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Patient;
 
-public class PatientDetailActivity extends AppCompatActivity {
+public class PatientDetailActivity extends BaseActivity {
 
     public static Intent newIntent(Context context, Patient patient){
         Intent intent = new Intent(context,PatientDetailActivity.class);
@@ -39,15 +40,6 @@ public class PatientDetailActivity extends AppCompatActivity {
         initBindings();
         initData();
         initToolbar();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void initToolbar() {
