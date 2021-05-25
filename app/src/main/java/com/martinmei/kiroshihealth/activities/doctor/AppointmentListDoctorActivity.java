@@ -15,7 +15,7 @@ import com.martinmei.kiroshihealth.R;
 import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.activities.doctor.adapter.AppointmentDoctorAdapter;
 import com.martinmei.kiroshihealth.activities.doctor.adapter.OnAppointmentDoctorListener;
-import com.martinmei.kiroshihealth.activities.patient.AppointmentDetailActivity;
+import com.martinmei.kiroshihealth.activities.patient.AppointmentDetailPatientActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Appointment;
 import com.martinmei.kiroshihealth.models.Doctor;
@@ -98,6 +98,6 @@ public class AppointmentListDoctorActivity extends BaseActivity implements OnApp
 
     @Override
     public void onAppointmentDoctorItemClick(Appointment appointment) {
-        startActivity(AppointmentDetailActivity.newIntent(this, appointment));
+        startActivity(AppointmentDetailPatientActivity.newIntent(this, appointment));
     }
 }

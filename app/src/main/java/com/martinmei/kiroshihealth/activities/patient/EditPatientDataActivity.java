@@ -48,8 +48,8 @@ public class EditPatientDataActivity extends BaseActivity {
         initBindings();
         initData();
         initSpinner();
-        initToolbar();
         initUI();
+        initToolbar();
     }
 
     private void initToolbar() {
@@ -57,7 +57,7 @@ public class EditPatientDataActivity extends BaseActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        tvToolbar.setText(getString(R.string.my_data_doctor_title));
+        tvToolbar.setText(getString(R.string.common_edit_title));
     }
 
     private void initSpinner() {
@@ -84,25 +84,25 @@ public class EditPatientDataActivity extends BaseActivity {
     }
 
     private void initUI(){
-        tvDni.setText(patient.getDni());
-        etName.setText(patient.getName());
-        etLastName.setText(patient.getLastName());
-        etPhone.setText(patient.getPhone());
+       tvDni.setText(patient.getDni());
+       etName.setText(patient.getName());
+       etLastName.setText(patient.getLastName());
+       etPhone.setText(patient.getPhone());
     }
 
     private String getDniSelectedDoctor(){
-        return doctors.get((spDoctors.getSelectedItemPosition()-1)).getDni();
+        return doctors.get((spDoctors.getSelectedItemPosition())).getDni();
     }
 
     private boolean verification(){
-        if (Utils.isEmpty(etName) || Utils.isEmpty(etLastName) || Utils.validatePhone(etPhone)) {
+        if (Utils.isEmpty(etName) || Utils.isEmpty(etLastName) || !Utils.validatePhone(etPhone)) {
             if(Utils.isEmpty(etName)){
                 etName.setError(getString(R.string.common_text_empty));
             }
             if(Utils.isEmpty(etLastName)){
                 etLastName.setError(getString(R.string.common_text_empty));
             }
-            if(Utils.isEmpty(etPhone)){
+            if(!Utils.validatePhone(etPhone)){
                etPhone.setError(getString(R.string.common_text_empty));
             }
             showErrorMessage(getString(R.string.error_at_operation));
@@ -113,8 +113,8 @@ public class EditPatientDataActivity extends BaseActivity {
 
     public void onClickUpdatePatient(View view){
         if(verification()){
-            Patient patientUpdated = new Patient(patient.getDni(),etName.getText().toString(),etLastName.getText().toString(),getDniSelectedDoctor(),etPhone.getText().toString());
-            Database.updatePatient(this,patientUpdated);
+            Patient patientUpdated = new Patient(patient.getDni(), etName.getText().toString(), etLastName.getText().toString(), etPhone.getText().toString(), getDniSelectedDoctor());
+            Database.updatePatient(this, patientUpdated);
             showMessage(getString(R.string.text_saved));
             finish();
         }

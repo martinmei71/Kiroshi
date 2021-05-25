@@ -169,7 +169,7 @@ public class Database extends SQLiteOpenHelper {
     public static boolean updateDoctor(Context context, Doctor doctor){
         SQLiteDatabase sqLiteDatabase = initWritableDDBB(context);
         ContentValues values = getDoctorContentValues(doctor);
-        int updatedRows = sqLiteDatabase.update(TABLE_DOCTOR, values,DNI_DOC + " = ?" , new String[]{doctor.getDni()});
+        int updatedRows = sqLiteDatabase.update(TABLE_DOCTOR, values,DNI_DOC + " = ?" , new String[]{doctor.getDni().toUpperCase()});
         sqLiteDatabase.close();
         return updatedRows != 0;
     }
@@ -214,14 +214,14 @@ public class Database extends SQLiteOpenHelper {
         return patientSend;
     }
 
-    public static boolean hasPatient(Context context,String dni){
+    public static boolean hasPatient(Context context, String dni){
         return getPatient(context, dni) != null;
     }
 
     public static boolean updatePatient(Context context, Patient patient){
         SQLiteDatabase sqLiteDatabase = initWritableDDBB(context);
         ContentValues values = getPatientContentValues(patient);
-        int updatedRows = sqLiteDatabase.update(TABLE_DOCTOR, values,DNI_DOC + " = ?" , new String[]{patient.getDni()});
+        int updatedRows = sqLiteDatabase.update(TABLE_PATIENT, values,DNI_PATIENT + " = ?" , new String[]{patient.getDni()});
         sqLiteDatabase.close();
         return updatedRows != 0;
     }

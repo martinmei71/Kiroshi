@@ -7,6 +7,17 @@
     android:backgroundTint="#FF3D00"
     tools:context=".activities.doctor.PatientDetailActivity">
 
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="87dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_toolbar"
+        app:srcCompat="@drawable/my_data"
+        app:tint="@color/colorAccent" />
+
     <Button
         android:id="@+id/btn_delete_dpat_a"
         android:layout_width="295dp"
@@ -31,9 +42,9 @@
 
     <TextView
         android:id="@+id/tv_patient_detail_name_last_name"
-        android:layout_width="255dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/averia_serif_libre_bold"
         android:gravity="center"
         android:text="Name + LastName"
@@ -42,14 +53,14 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
         android:text="DNI: "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_patient_detail_name_last_name" />
@@ -58,7 +69,7 @@
         android:id="@+id/tv_patient_detail_dni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="123356789H"
@@ -85,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:text="Telefono"
         app:layout_constraintStart_toEndOf="@+id/tv_patient_detail_dni"
         app:layout_constraintTop_toBottomOf="@+id/tv_patient_detail_name_last_name" />

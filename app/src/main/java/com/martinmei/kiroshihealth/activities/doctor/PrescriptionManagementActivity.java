@@ -110,14 +110,23 @@ public class PrescriptionManagementActivity extends BaseActivity {
                     etName.setVisibility(View.GONE);
                     etDescription.setVisibility(View.GONE);
                     spPrescriptions.setVisibility(View.VISIBLE);
+                    buttonApply.setVisibility(View.VISIBLE);
                     buttonApply.setText(getString(R.string.common_text_delete));
                     spPatients.setVisibility(View.GONE);
                 } else if (spOperations.getSelectedItem().toString().equals(Constants.OPERATIONS_NUEVO)) {
+                    buttonApply.setVisibility(View.VISIBLE);
                     spPatients.setVisibility(View.VISIBLE);
                     etName.setVisibility(View.VISIBLE);
                     etDescription.setVisibility(View.VISIBLE);
                     spPrescriptions.setVisibility(View.GONE);
                     buttonApply.setText(getString(R.string.common_text_new));
+                } else{
+                    buttonApply.setVisibility(View.GONE);
+                    spPatients.setVisibility(View.GONE);
+                    etName.setVisibility(View.GONE);
+                    etDescription.setVisibility(View.GONE);
+                    spPrescriptions.setVisibility(View.GONE);
+                    buttonApply.setVisibility(View.GONE);
                 }
             }
 

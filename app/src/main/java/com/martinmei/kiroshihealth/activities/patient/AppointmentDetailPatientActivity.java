@@ -1,23 +1,21 @@
 package com.martinmei.kiroshihealth.activities.patient;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.martinmei.kiroshihealth.R;
 import com.martinmei.kiroshihealth.activities.BaseActivity;
 import com.martinmei.kiroshihealth.ddbb.Database;
 import com.martinmei.kiroshihealth.models.Appointment;
+import com.martinmei.kiroshihealth.models.Doctor;
+import com.martinmei.kiroshihealth.models.Patient;
 
-public class AppointmentDetailActivity extends BaseActivity {
+public class AppointmentDetailPatientActivity extends BaseActivity {
 
     private TextView tvCode;
     private TextView tvDate;
@@ -25,10 +23,11 @@ public class AppointmentDetailActivity extends BaseActivity {
     private TextView tvPatientData;
     private TextView tvToolbar;
     private Toolbar toolbar;
+    private Doctor doctor;
     private Appointment appointment;
 
     public static Intent newIntent(Context context, Appointment appointment){
-        Intent intent = new Intent(context, AppointmentDetailActivity.class);
+        Intent intent = new Intent(context, AppointmentDetailPatientActivity.class);
         intent.putExtra(Intent.EXTRA_INTENT, appointment);
         return intent;
     }
@@ -62,13 +61,18 @@ public class AppointmentDetailActivity extends BaseActivity {
 
     private void initData(){
         appointment = getIntent().getParcelableExtra(Intent.EXTRA_INTENT);
+        doctor = Database.getDoctor(this, appointment.getDniPatient().toUpperCase());
     }
 
     private void initUI(){
         tvCode.setText(appointment.getCodMeet().toString());
         tvSubject.setText(appointment.getSubject());
         tvDate.setText(appointment.getDate());
-        tvPatientData.setText(appointment.getDniPatient());
+        tvPatientData.setText(doctor.getName()+" "+doctor.getLastName());
+    }
+
+    private void getName(String dni){
+
     }
 
     public void onClickDeleteButton(View view){

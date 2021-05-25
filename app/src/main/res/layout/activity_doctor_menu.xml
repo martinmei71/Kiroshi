@@ -49,12 +49,13 @@
         android:id="@+id/textView16"
         android:layout_width="95dp"
         android:layout_height="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
         android:text="Ver Citas"
         android:textColor="#3A3A3A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
 
@@ -71,27 +72,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="98dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="48dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:gravity="center"
-        android:text="Mis Datos"
-        android:textColor="#3A3A3A"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton7" />
-
     <ImageButton
         android:id="@+id/imageButton8"
         android:layout_width="97dp"
         android:layout_height="95dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="136dp"
         android:background="@drawable/icono_citas_doctor"
         android:onClick="onClickAppointmentList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
 
@@ -106,22 +95,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
 
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="97dp"
-        android:layout_height="95dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="48dp"
-        android:background="@drawable/icono_mis_datos_doctor"
-        android:onClick="onClickShowMyDoctorData"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
-
     <include
         android:id="@+id/content_toolbar"
         layout="@layout/toolbar_default"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="123dp"
+        android:layout_height="162dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton8"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:srcCompat="@drawable/kiroshi_logominitraslucent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

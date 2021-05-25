@@ -6,20 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".activities.patient.EditPatientDataActivity">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="104dp"
-        android:layout_height="126dp"
-        android:alpha="129"
-        android:background="#C6FFFFFF"
-        android:backgroundTint="#22FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/white"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content_toolbar"
-        app:layout_constraintVertical_bias="0.843"
-        app:srcCompat="@drawable/kiroshi_logominitraslucent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_dni_epda">
+
+        <EditText
+            android:id="@+id/et_name_epda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/averia_serif_libre_bold"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:text="Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/white"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+
+        <EditText
+            android:id="@+id/et_last_name_epda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/averia_serif_libre_bold"
+            android:hint="Apellidos"
+            android:inputType="textPersonName"
+            android:text="Apellidos" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/white"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+        <EditText
+            android:id="@+id/et_phone_epda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/averia_serif_libre_bold"
+            android:hint="Telefono"
+            android:inputType="textPersonName"
+            android:text="TELEFONO" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/button_save_epda"
@@ -65,82 +119,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="DNI:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
-
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Nombre:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dni_epda" />
-
-    <TextView
-        android:id="@+id/textView31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Nombre:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_name_epda" />
-
-    <EditText
-        android:id="@+id/et_name_epda"
-        android:layout_width="338dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:fontFamily="@font/averia_serif_libre_bold"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView30" />
-
-    <EditText
-        android:id="@+id/et_last_name_epda"
-        android:layout_width="338dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:fontFamily="@font/averia_serif_libre_bold"
-        android:inputType="textPersonName"
-        android:text="Apellidos"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView31" />
-
-    <EditText
-        android:id="@+id/et_phone_epda"
-        android:layout_width="338dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:fontFamily="@font/averia_serif_libre_bold"
-        android:inputType="textPersonName"
-        android:text="TELEFONO"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView32" />
-
-    <TextView
-        android:id="@+id/textView32"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Telefono:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_last_name_epda" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:text="Doctor:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_phone_epda" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
 
     <Spinner
         android:id="@+id/sp_doctores_epda"
@@ -150,5 +141,16 @@
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="87dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_toolbar"
+        app:srcCompat="@drawable/my_data"
+        app:tint="@color/colorAccent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

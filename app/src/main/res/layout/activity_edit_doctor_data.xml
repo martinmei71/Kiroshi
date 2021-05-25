@@ -6,6 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".activities.doctor.EditDoctorDataActivity">
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="87dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_toolbar"
+        app:srcCompat="@drawable/my_data"
+        app:tint="#FFC400" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/white"
+        app:endIconMode="clear_text"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+
+        <EditText
+            android:id="@+id/et_specialty_edda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/averia_serif_libre_bold"
+            android:hint="Especialidad:"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
         android:id="@+id/tv_dni_edda"
         android:layout_width="377dp"
@@ -45,93 +78,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="104dp"
-        android:layout_height="126dp"
-        android:alpha="129"
-        android:background="#C6FFFFFF"
-        android:backgroundTint="#22FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content_toolbar"
-        app:layout_constraintVertical_bias="0.843"
-        app:srcCompat="@drawable/kiroshi_logominitraslucent" />
-
     <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="DNI:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/white"
+        app:endIconMode="clear_text"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dni_edda">
+
+        <EditText
+            android:id="@+id/et_name_edda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/averia_serif_libre_bold"
+            android:hint="Nombre:"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="match_parent"
+        app:boxBackgroundColor="@color/white"
+        app:endIconMode="clear_text"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Nombre:"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dni_edda" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
-    <EditText
-        android:id="@+id/et_name_edda"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:fontFamily="@font/averia_serif_libre_bold"
-        android:hint="Escribe tu Nombre"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        <EditText
+            android:id="@+id/et_last_name_edda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/averia_serif_libre_bold"
+            android:hint="Apellidos:"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/et_last_name_edda"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:fontFamily="@font/averia_serif_libre_bold"
-        android:hint="Escribe tus Apellidos"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
-    <EditText
-        android:id="@+id/et_specialty_edda"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:fontFamily="@font/averia_serif_libre_bold"
-        android:hint="Introduce tu Especialidad"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Apellidos"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_name_edda" />
-
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Especialidad:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_last_name_edda" />
 </androidx.constraintlayout.widget.ConstraintLayout>

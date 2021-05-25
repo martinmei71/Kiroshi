@@ -9,12 +9,14 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:screenOrientation="portrait"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KiroshiHealth">
 
         <activity
             android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.KiroshiHealthStatusBarColorYellow" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,27 +26,49 @@
 
         <meta-data
         android:name="preloaded_fonts"
-        android:resource="@array/preloaded_fonts" />
-        <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.patient.DoctorDataPatientActivity" />
-        <activity android:name=".activities.patient.AppointmentPatientListActivity" />
-        <activity android:name=".activities.patient.AppointmentDetailActivity" />
-        <activity android:name=".activities.patient.DetailPrescriptionActivity" />
-        <activity android:name=".activities.patient.PatientPrescriptionsListActivity" />
-        <activity android:name=".activities.patient.CreateAppointmentActivity" />
-        <activity android:name=".activities.patient.EditPatientDataActivity" />
-        <activity android:name=".activities.patient.MyPatientDataActivity" />
-        <activity android:name=".activities.doctor.EditDoctorDataActivity" />
-        <activity android:name=".activities.doctor.MyDataDoctorActivity" />
-        <activity android:name=".activities.doctor.PatientDetailActivity" />
-        <activity android:name=".activities.doctor.AppointmentListDoctorActivity" />
-        <activity android:name=".activities.doctor.PatientsListActivity" />
-        <activity android:name=".activities.doctor.DoctorMenuActivity" />
-        <activity android:name=".activities.doctor.PrescriptionManagementActivity" />
-        <activity android:name=".activities.doctor.AccessDniDoctorActivity" />
-        <activity android:name=".activities.patient.AccessDniPatientActivity" />
-        <activity android:name=".activities.patient.PatientsMenuActivity" />
-        <activity android:name=".activities.RegisterActivity" />
+        android:resource="@array/preloaded_fonts"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".activities.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.patient.DoctorDataPatientActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.patient.AppointmentPatientListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.patient.AppointmentDetailPatientActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.patient.DetailPrescriptionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.patient.PatientPrescriptionsListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.patient.CreateAppointmentActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.patient.EditPatientDataActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.patient.MyPatientDataActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.doctor.EditDoctorDataActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.doctor.MyDataDoctorActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.doctor.PatientDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.doctor.AppointmentListDoctorActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.doctor.PatientsListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.doctor.DoctorMenuActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.doctor.PrescriptionManagementActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.doctor.AccessDniDoctorActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.patient.AccessDniPatientActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.patient.PatientsMenuActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.RegisterActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

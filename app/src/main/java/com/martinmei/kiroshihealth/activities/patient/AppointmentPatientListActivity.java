@@ -1,7 +1,5 @@
 package com.martinmei.kiroshihealth.activities.patient;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -92,7 +89,7 @@ public class AppointmentPatientListActivity extends BaseActivity implements OnAp
     }
 
     public void goToAppointmentDetail(Appointment appointment){
-        startActivity(AppointmentDetailActivity.newIntent(this, appointment));
+        startActivity(AppointmentDetailPatientActivity.newIntent(this, appointment));
     }
 
     private void updateUI(){

@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ public class AccessDniPatientActivity extends BaseActivity {
     private EditText dniP;
     private Toolbar toolbar;
     private TextView tvToolbar;
+    private Patient patient;
 
     public static Intent newIntent(Context context){
         Intent intent = new Intent(context,AccessDniPatientActivity.class);
@@ -33,10 +35,9 @@ public class AccessDniPatientActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_access_dni_paciente);
-
         initBindings();
         initToolbar();
-
+        initListener();
     }
 
     private void initBindings() {
@@ -55,11 +56,21 @@ public class AccessDniPatientActivity extends BaseActivity {
     public void onClickEnter(View v) {
         String dni = dniP.getText().toString();
         if (Database.hasPatient(this, dni)) {
-            Patient patient = Database.getPatient(this, dni);
+            patient = Database.getPatient(this, dni);
             goToPatientMenu(patient);
         } else {
             showErrorMessage(getString(R.string.login_no_patient_data));
         }
+    }
+    private void initListener(){
+        dniP.setOnKeyListener((v, keyCode, event) -> {
+            if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                patient = Database.getPatient(this, dniP.getText().toString().toUpperCase());
+                goToPatientMenu(patient);
+                return true;
+            }
+            return false;
+        });
     }
 
     private void goToPatientMenu(Patient patient){

@@ -7,8 +7,11 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.martinmei.kiroshihealth.R;
@@ -22,6 +25,7 @@ public class PatientsMenuActivity extends BaseActivity {
    private TextView tvToolbar;
    private TextView tvTitle;
    private Patient patient;
+   private ImageView ivLogo;
 
 
     public static Intent newIntent(Context context, Patient patient){
@@ -37,24 +41,46 @@ public class PatientsMenuActivity extends BaseActivity {
         initBindings();
         initData();
         initToolbar();
-        initUI();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        patient = Database.getPatient(this,patient.getDni());
+        updateData();
         initUI();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_my_data, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.my_data_button:
+                goToMyData();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void initData() {
         patient = getIntent().getParcelableExtra(Intent.EXTRA_INTENT);
     }
 
+    private void updateData() {
+        patient = Database.getPatient(this, patient.getDni());
+    }
+
     private  void initBindings(){
         toolbar = findViewById(R.id.toolbar);
         tvToolbar = findViewById(R.id.toolbar_title);
-        tvTitle =   findViewById(R.id.tv_title_pm);
+        tvTitle = findViewById(R.id.tv_title_pm);
+        ivLogo = findViewById(R.id.image_logo);
     }
 
     private void initUI(){
@@ -66,19 +92,20 @@ public class PatientsMenuActivity extends BaseActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ivLogo.setVisibility(View.GONE);
         tvToolbar.setText(getString(R.string.menu_patient_title));
     }
 
     public void goToCreateAppointment(View view){
-       startActivity(CreateAppointmentActivity.newIntent(this,patient));
+       startActivity(CreateAppointmentActivity.newIntent(this, patient));
     }
 
-    public void goToMyData(View view){
-        startActivity(MyPatientDataActivity.newIntent(this,patient));
+    public void goToMyData(){
+        startActivity(MyPatientDataActivity.newIntent(this, patient));
     }
 
     public void goToPrescriptionList(View view){
-        startActivity(PatientPrescriptionsListActivity.newIntent(this,patient));
+        startActivity(PatientPrescriptionsListActivity.newIntent(this, patient));
     }
 
     public void goToAppointmentList(View view){

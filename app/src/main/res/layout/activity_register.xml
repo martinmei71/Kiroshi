@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,108 +8,143 @@
 
     <include
         android:id="@+id/content_toolbar"
-        layout="@layout/toolbar_default"
-        />
+        layout="@layout/toolbar_default" />
 
-
-    <EditText
-        android:id="@+id/et_dni_rua"
-        android:layout_width="291dp"
-        android:layout_height="46dp"
+    <Spinner
+        android:id="@+id/sp_selector_user_rua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="DNI"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_selector_user_rua" />
-
-    <EditText
-        android:id="@+id/et_name_rua"
-        android:layout_width="291dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="Nombre "
-        android:inputType="textPersonName"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_dni_rua" />
-
-    <EditText
-        android:id="@+id/et_last_name_rua"
-        android:layout_width="291dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="96dp"
-        android:ems="10"
-        android:hint="Apellidos"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_dni_rua" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="158dp"
         android:layout_height="54dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
         android:text="¡ Bienvenido !"
         android:textAllCaps="true"
         android:textColor="#151515"
         android:textSize="20sp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/content_toolbar" />
 
-    <Spinner
-        android:id="@+id/sp_selector_user_rua"
-        android:layout_width="294dp"
-        android:layout_height="46dp"
-
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <EditText
-        android:id="@+id/et_telephone_rua"
-        android:layout_width="291dp"
-        android:layout_height="46dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Telefono"
-        android:inputType="phone"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_last_name_rua" />
+        app:layout_constraintTop_toBottomOf="@+id/sp_selector_user_rua">
 
-    <EditText
-        android:id="@+id/et_specialty_rua"
-        android:layout_width="291dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Especialidad"
-        android:inputType="text"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_telephone_rua" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:boxBackgroundColor="@color/white"
+            app:endIconMode="clear_text">
 
-    <Spinner
-        android:id="@+id/sp_dni_doctor_rua"
-        android:layout_width="291dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_telephone_rua" />
+            <EditText
+                android:id="@+id/et_dni_rua"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="DNI"
+                android:inputType="textVisiblePassword"
+                android:visibility="gone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:boxBackgroundColor="@color/white"
+            app:endIconMode="clear_text">
+
+            <EditText
+                android:id="@+id/et_name_rua"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:hint="Nombre "
+                android:inputType="textPersonName"
+                android:visibility="gone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/white"
+            app:endIconMode="clear_text">
+
+            <EditText
+                android:id="@+id/et_last_name_rua"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:hint="Apellidos"
+                android:inputType="textPersonName"
+                android:visibility="gone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti_phone_register"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:boxBackgroundColor="@color/white"
+            app:endIconMode="clear_text">
+
+            <EditText
+                android:id="@+id/et_telephone_rua"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="Telefono"
+                android:inputType="phone"
+                android:visibility="gone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti_specialty_register"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:boxBackgroundColor="@color/white"
+            app:endIconMode="clear_text">
+
+            <EditText
+                android:id="@+id/et_specialty_rua"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="Especialidad"
+                android:inputType="text"
+                android:visibility="gone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/sp_dni_doctor_rua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:visibility="visible" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_registrarme_rua"

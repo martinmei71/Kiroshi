@@ -6,7 +6,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
+import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -24,6 +26,7 @@ public class AccessDniDoctorActivity extends BaseActivity {
     private EditText etDniDoc;
     private Toolbar toolbar;
     private TextView tvToolbar;
+    private Doctor doctor;
 
     public static Intent newIntent(Context context){
         Intent intent = new Intent(context,AccessDniDoctorActivity.class);
@@ -36,21 +39,19 @@ public class AccessDniDoctorActivity extends BaseActivity {
         setContentView(R.layout.activity_access_dni_doctor);
         initBindings();
         initToolbar();
+        initListener();
     }
 
     private void initBindings(){
         etDniDoc = findViewById(R.id.et_dniDoc_ED);
         toolbar = findViewById(R.id.toolbar);
         tvToolbar = findViewById(R.id.toolbar_title);
-        if(BuildConfig.DEBUG) {
-            etDniDoc.setText("49333972F");
-        }
     }
 
     public void onClickLoginDoctor(View v){
-        String dni = etDniDoc.getText().toString();
+        String dni = etDniDoc.getText().toString().toUpperCase();
         if (Database.hasDoctor(this, dni)) {
-            Doctor doctor = Database.getDoctor(this, dni);
+            doctor = Database.getDoctor(this, dni);
             goToDoctorMenu(doctor);
         } else {
             showErrorMessage(getString(R.string.login_no_doctor_data));
@@ -60,6 +61,17 @@ public class AccessDniDoctorActivity extends BaseActivity {
     public void goToDoctorMenu(Doctor doctor){
         startActivity(DoctorMenuActivity.newIntent(this, doctor));
         finish();
+    }
+
+    private void initListener(){
+        etDniDoc.setOnKeyListener((v, keyCode, event) -> {
+            if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                doctor = Database.getDoctor(this, etDniDoc.getText().toString().toUpperCase());
+                goToDoctorMenu(doctor);
+                return true;
+            }
+            return false;
+        });
     }
 
     private void initToolbar() {
